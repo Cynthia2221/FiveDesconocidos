@@ -20,11 +20,6 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'subjectId',
         otherKey: 'levelId'
       });
-      Subject.belongsToMany(models.Lessons, {
-        through: 'subjectLevels',
-        foreignKey: 'subjectId',
-        otherKey: 'lessonId'
-      });
     }
   }
   subject.init({

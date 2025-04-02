@@ -10,7 +10,10 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Level.hasMany(models.Lesson, {
+        foreignKey: 'levelId',
+        onDelete: 'CASCADE'
+      });
     }
   }
   level.init({

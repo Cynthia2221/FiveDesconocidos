@@ -15,6 +15,16 @@ module.exports = {
       url: {
         type: Sequelize.STRING
       },
+      levelId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'levels',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

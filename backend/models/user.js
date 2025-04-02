@@ -28,28 +28,3 @@ module.exports = (sequelize, DataTypes) => {
   });
   return User;
 };
-
-/* 
-subject specific
-  - favorite
-
-subject
-  - name
-  - description
-
-Subject level (inter)
-  - id level
-  - id subject
-  - id lesson
-  
-level
-  - name
-  - description
-  
-level
-  - name
-  
-lesson
-  - name 
-  - url video
-  */
