@@ -14,23 +14,29 @@ exports.signin = async (req, res) => {
   }
 
   try {
-    let user = await login(user);
-    
-    if (!user) return res.status(404).json({ error: "User not found" });
+    let foundUser = await login(user);  // Evita redefinir `user`
+
+    if (!foundUser) return res.status(404).json({ error: "User not found" });
 
     // Validar la contraseña
-    const isMatch = await bcrypt.compare(password, user.password);
+    const isMatch = await bcrypt.compare(password, foundUser.password);
     if (!isMatch) return res.status(401).json({ error: "Incorrect password" });
 
     // Generar el token
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: "1h" });
+    const token = jwt.sign(
+      { id: foundUser.id },
+      process.env.JWT_SECRET,
+      { expiresIn: "1h" }
+    );
 
-    const userObj = utils.getCleanUser(user);
+    const userObj = utils.getCleanUser(foundUser);
     res.json({ user: userObj, token });
   } catch (err) {
+    console.error(err); // Agregar log para depurar
     res.status(500).json({ error: "Internal error" });
   }
 };
+
 
 exports.isAuthenticated = (req, res, next) => {
   const token = req.token;

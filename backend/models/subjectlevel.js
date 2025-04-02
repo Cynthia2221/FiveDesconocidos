@@ -1,14 +1,7 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class subjectLevel extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+  class SubjectLevel extends Model {
     static associate(models) {
       SubjectLevel.belongsTo(models.Subject, {
         foreignKey: 'subjectId',
@@ -21,13 +14,13 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   }
-  subjectLevel.init({
+  SubjectLevel.init({
     subjectId: DataTypes.INTEGER,
     levelId: DataTypes.INTEGER,
     lessonId: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'subjectLevel',
+    modelName: 'SubjectLevel',
   });
-  return subjectLevel;
+  return SubjectLevel;
 };

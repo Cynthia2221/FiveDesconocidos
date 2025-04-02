@@ -1,14 +1,7 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class lesson extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+  class Lesson extends Model {
     static associate(models) {
       Lesson.belongsTo(models.Level, {
         foreignKey: 'levelId',
@@ -16,12 +9,12 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   }
-  lesson.init({
+  Lesson.init({
     name: DataTypes.STRING,
     url: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'lesson',
+    modelName: 'Lesson',
   });
-  return lesson;
+  return Lesson;
 };
