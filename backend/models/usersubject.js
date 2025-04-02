@@ -10,7 +10,15 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      UserSubject.belongsTo(models.User, {
+        foreignKey: 'userId',
+        onDelete: 'CASCADE'
+      });
+
+      UserSubject.belongsTo(models.Subject, {
+        foreignKey: 'subjectId',
+        onDelete: 'CASCADE'
+      });
     }
   }
   userSubject.init({
@@ -19,6 +27,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'userSubject',
+    tableName: 'userSubjects',
+    timestamps: true
   });
   return userSubject;
 };

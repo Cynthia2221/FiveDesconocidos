@@ -10,7 +10,15 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      SubjectLevel.belongsTo(models.Subject, {
+        foreignKey: 'subjectId',
+        onDelete: 'CASCADE'
+      });
+
+      SubjectLevel.belongsTo(models.Level, {
+        foreignKey: 'levelId',
+        onDelete: 'CASCADE'
+      });
     }
   }
   subjectLevel.init({

@@ -2,30 +2,18 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('subjectLevels', {
+    await queryInterface.createTable('reminders', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      subjectId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'subjects',
-          key: 'id'
-        },
-        onDelete: 'CASCADE'
+      date: {
+        type: Sequelize.DATE
       },
-      levelId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'levels',
-          key: 'id'
-        },
-        onDelete: 'CASCADE'
+      description: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -38,6 +26,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('subjectLevels');
+    await queryInterface.dropTable('reminders');
   }
 };

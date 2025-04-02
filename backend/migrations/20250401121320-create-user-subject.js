@@ -9,11 +9,29 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      favorites: {
+        allowNull: true,
+        autoIncrement: false,
+        primaryKey: false,
+        type: Sequelize.BOOLEAN
+      },
       userId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Users',
+          key: 'id'
+        },
+        onDelete: 'CASCADE'
       },
       subjectId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'subjects',
+          key: 'id'
+        },
+        onDelete: 'CASCADE'
       },
       createdAt: {
         allowNull: false,
