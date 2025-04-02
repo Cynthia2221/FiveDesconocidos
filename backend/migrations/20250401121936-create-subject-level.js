@@ -10,13 +10,31 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       subjectId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'subjects',
+          key: 'id'
+        },
+        onDelete: 'CASCADE'
       },
       levelId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'levels',
+          key: 'id'
+        },
+        onDelete: 'CASCADE'
       },
       lessonId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'lessons',
+          key: 'id'
+        },
+        onDelete: 'CASCADE'
       },
       createdAt: {
         allowNull: false,
