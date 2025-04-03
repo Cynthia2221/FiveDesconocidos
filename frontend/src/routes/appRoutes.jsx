@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { HomePage } from "../pages/homePage/homePage";
 import { LoginPage } from "../pages/loginPage/loginPage";
-import { RegisterPage } from "../pages/register/register";
+import { RegisterPage } from "../pages/registerPage/registerPage";
 import { SubjectPage } from "../pages/subjectPage/subject";
 import { DetailSubjectPage } from "../pages/detailSubjectPage/detailSubjectPage";
 import { LevelSubjectPage } from "../pages/levelSubjectPage/levelSubjectPage";
