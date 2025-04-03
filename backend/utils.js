@@ -4,8 +4,7 @@ function generateToken(user) {
   if (!user) return null;
   const u = {
     id: user.id,
-    name: user.user,
-    role: user.role,
+    name: user.name,
   };
   return jwt.sign(u, process.env.JWT_SECRET, {
     expiresIn: 60 * 60 * 24,
@@ -17,8 +16,7 @@ function getCleanUser(user) {
 
   return {
     id: user.id,
-    name: user.user,
-    role: user.role,
+    name: user.name,
   };
 }
 

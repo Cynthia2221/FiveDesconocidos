@@ -12,10 +12,10 @@ module.exports = (req, res, next) => {
   if (authHeader.startsWith("Basic ")) {
     const base64Credentials = authHeader.split(" ")[1];
     const credentials = Buffer.from(base64Credentials, "base64").toString("ascii");
-    const [user, password] = credentials.split(":");
+    const [name, password] = credentials.split(":");
 
 
-    if (!req.body.user) req.body.user = user;
+    if (!req.body.name) req.body.name = name;
     if (!req.body.password) req.body.password = password;
 
     return next();

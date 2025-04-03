@@ -5,16 +5,21 @@ const db = require("../models");
 const { login } = require("./site.controller");
 
 exports.signin = async (req, res) => {
-  const { user, password } = req.body;
+  const { name, password } = req.body;
 
-  if (!user || !password) {
+
+  if (!name || !password) {
     return res.status(400).json({
       error: "Username and password required",
+      password: password,
+      name: name,
     });
   }
 
   try {
-    let foundUser = await login(user);  // Evita redefinir `user`
+    console.log("Entró");
+    let foundUser = await login(name)
+    console.log("sigue");
 
     if (!foundUser) return res.status(404).json({ error: "User not found" });
 

@@ -73,3 +73,7 @@ module.exports = {
     await queryInterface.bulkDelete("Users", null, {});
   },
 };
+
+
+// npx sequelize-cli db:migrate
+// npx sequelize-cli db:seed:all
