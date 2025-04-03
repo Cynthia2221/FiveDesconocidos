@@ -8,8 +8,8 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'subjectId',
         otherKey: 'userId'
       });
-      Subject.belongsToMany(models.Level, { // Corregido a singular
-        through: 'SubjectLevels',
+      Subject.belongsToMany(models.Level, {
+        through: 'subjectLevels',
         foreignKey: 'subjectId',
         otherKey: 'levelId'
       });

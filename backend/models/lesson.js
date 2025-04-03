@@ -11,7 +11,17 @@ module.exports = (sequelize, DataTypes) => {
   }
   Lesson.init({
     name: DataTypes.STRING,
-    url: DataTypes.STRING
+    url: DataTypes.STRING,
+    levelId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Levels',
+        key: 'id'
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
+    }
   }, {
     sequelize,
     modelName: 'Lesson',
