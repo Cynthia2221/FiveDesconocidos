@@ -13,8 +13,9 @@ import { SettingsPage } from "../pages/settingsPage/settingsPage";
 export const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/login" element={<LoginPage />} />
+      <Route index element={<LoginPage />} />
+
+      <Route path="/home" element={<HomePage />} />
       <Route path="/register" element={<RegisterPage />} />
 
       <Route path="/subject" element={<SubjectPage />} />
