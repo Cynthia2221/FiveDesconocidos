@@ -1,6 +1,16 @@
 {
   "dependencies": {
+<<<<<<< HEAD
     "express": "^4.21.2",
     "sequelize": "^6.37.7"
+=======
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mysql2": "^3.14.0",
+    "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.2"
+>>>>>>> de4e6556c9854dbb51a144dc4c302123ba87d7a1
   }
 }
