@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class subject extends Model {
+  class Subject extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -15,19 +15,19 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'subjectId',
         otherKey: 'userId'
       });
-      Subject.belongsToMany(models.Levels, {
+      Subject.belongsToMany(models.Level, {
         through: 'subjectLevels',
         foreignKey: 'subjectId',
         otherKey: 'levelId'
       });
     }
   }
-  subject.init({
+  Subject.init({
     name: DataTypes.STRING,
     description: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'subject',
+    modelName: 'Subject',
   });
-  return subject;
+  return Subject;
 };
