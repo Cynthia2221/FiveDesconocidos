@@ -39,6 +39,7 @@ db.sequelize.sync({ force: true }).then(() => {
 
 
 require("./routes/site.routes")(app);
+require("./routes/user.routes")(app);
 
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to application" });

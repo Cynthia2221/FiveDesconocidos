@@ -27,6 +27,15 @@ module.exports = {
         },
         onDelete: 'CASCADE'
       },
+      lessonId: { 
+        type: Sequelize.INTEGER,
+        allowNull: true, 
+        references: {
+          model: 'lessons',
+          key: 'id'
+        },
+        onDelete: 'SET NULL' 
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -41,3 +50,5 @@ module.exports = {
     await queryInterface.dropTable('subjectLevels');
   }
 };
+
+// npx sequelize-cli db:migrate:undo:all
