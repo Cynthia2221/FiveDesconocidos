@@ -53,7 +53,7 @@ exports.isAuthenticated = (req, res, next) => {
     if (err) return res.status(401).json({ error: true, message: "Invalid token." });
 
     try {
-      const user = await db.user.findByPk(decoded.id);
+      const user = await db.User.findByPk(decoded.id);
       if (!user) {
         return res.status(401).json({ error: true, message: "Invalid user." });
       }

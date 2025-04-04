@@ -1,4 +1,5 @@
 const { User, Subject, UserSubject } = require('../models');
+const bcrypt = require('bcryptjs');
 
 exports.findAll = async (req, res) => {
   try {
@@ -32,10 +33,16 @@ exports.findOne = async (req, res) => {
   }
 };
 
+
 exports.create = async (req, res) => {
   try {
     const { name, email, password, age, subjectId } = req.body;
-    const user = await User.create({ name, email, password, age });
+
+    // Hashear la contraseña antes de crear el usuario
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    const user = await User.create({ name, email, password: hashedPassword, age });
 
     if (subjectId) {
       const subject = await Subject.findByPk(subjectId);
@@ -50,7 +57,6 @@ exports.create = async (req, res) => {
     res.status(500).json({ message: "Error al crear el usuario", error });
   }
 };
-
 exports.update = async (req, res) => {
   try {
     const { id } = req.params;
@@ -60,7 +66,14 @@ exports.update = async (req, res) => {
       return res.status(404).json({ message: "Usuario no encontrado" });
     }
 
-    await user.update({ name, email, password, age });
+    let updatedData = { name, email, age };
+    if (password) {
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(password, salt);
+      updatedData.password = hashedPassword;
+    }
+
+    await user.update(updatedData);
     res.json(user);
   } catch (error) {
     res.status(500).json({ message: "Error al actualizar el usuario", error });
