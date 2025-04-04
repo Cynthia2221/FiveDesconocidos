@@ -108,9 +108,8 @@ export const LoginPage = () => {
       </form>
       <LoginFooter>
         <p>
-          Don’t you have an account?
           <span>
-            <Link to="/register">Sign in</Link>
+            <Link to="/register">Create new account</Link>
           </span>
         </p>
       </LoginFooter>

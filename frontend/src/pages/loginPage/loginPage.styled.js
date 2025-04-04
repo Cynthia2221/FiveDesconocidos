@@ -85,7 +85,7 @@ export const LoginFooter = styled.div`
   font-size: small;
   span {
     margin: 0 0.2rem;
-    color: ${(props) => props.theme.color.cerulean};
+    color: ${(props) => props.theme.color.blue};
     &:hover {
       cursor: pointer;
       text-decoration: underline;
