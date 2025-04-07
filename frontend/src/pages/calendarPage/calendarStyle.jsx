@@ -5,7 +5,7 @@ import React from 'react'
 const calendarStyle = styled.div`
 
 .react-calendar__tile{
-    background-color: white;
+    background-color: blue;
 }
 
 `
