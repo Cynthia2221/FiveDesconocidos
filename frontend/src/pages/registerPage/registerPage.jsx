@@ -61,6 +61,7 @@ export const RegisterPage = () => {
   
         await registerUser(userData);
         navigate("/home");
+        console.log("Registro exitoso", userData)
       } catch (error) {
         alert("Error al registrarse: " + error.message);
       }
