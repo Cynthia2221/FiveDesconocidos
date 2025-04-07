@@ -8,6 +8,7 @@ import { LogoDiv } from "./registerPage.styled";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { registerUser } from "../../services/user.service"; 
 
 export const RegisterPage = () => {
   const navigate = useNavigate();
@@ -47,12 +48,23 @@ export const RegisterPage = () => {
     setValidAge(enteredAge > 0 && enteredAge <= 100);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validUser && validPassword) {
-      console.log("register form submitted successfully!");
-      console.log({ user, password, email, age });
-      navigate("/");
+    if (validUser && validPassword && validEmail && validAge) {
+      try {
+        const userData = {
+          name: user,
+          email,
+          password,
+          age: Number(age),
+        };
+  
+        await registerUser(userData);
+        navigate("/home");
+        console.log("Registro exitoso", userData)
+      } catch (error) {
+        alert("Error al registrarse: " + error.message);
+      }
     } else {
       console.log("Form submission failed. Please fix the errors.");
     }
