@@ -6,7 +6,7 @@ export const HomePageStyle = styled.div`
  width: 100%;
  height: 80vh;
  padding-top: 3vh;
- 
+
 `;
 
 export const SubjectsWrapper = styled.div`

@@ -37,6 +37,7 @@ db.sequelize.sync({ force: true }).then(() => {
     console.log("Drop and re-sync db");
 });
 
+app.use('/images', express.static(path.join(__dirname, 'public/images')));
 
 require("./routes/site.routes")(app);
 require("./routes/user.routes")(app);
