@@ -10,44 +10,50 @@ module.exports = {
 
     // Datos iniciales de los usuarios
     const users = [
-      { 
-        name: "Mayer", 
-        email: "mayer@gmail.com", 
-        password: hashedPassword, 
-        age: 20, 
-        createdAt: new Date(), 
-        updatedAt: new Date() 
+      {
+        name: "Mayer",
+        email: "mayer@gmail.com",
+        password: hashedPassword,
+        age: 20,
+        photo: "/public/images/user1.png",
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
-      { 
-        name: "Cynthia", 
-        email: "cynthia@gmail.com", 
-        password: hashedPassword, 
-        age: 30, 
-        createdAt: new Date(), 
-        updatedAt: new Date() },
-      { 
-        name: "William", 
-        email: "william@gmail.com", 
-        password: hashedPassword, 
-        age: 22, 
-        createdAt: new Date(), 
-        updatedAt: new Date() 
+      {
+        name: "Cynthia",
+        email: "cynthia@gmail.com",
+        password: hashedPassword,
+        age: 30,
+        photo: "/public/images/user1.png",
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
-      { 
-        name: "Margarida", 
-        email: "margarida@gmail.com", 
-        password: hashedPassword, 
-        age: 22, 
-        createdAt: new Date(), 
-        updatedAt: new Date() 
+      {
+        name: "William",
+        email: "william@gmail.com",
+        password: hashedPassword,
+        age: 22,
+        photo: "/public/images/user1.png",
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
-      { 
-        name: "Chris", 
-        email: "chris@gmail.com", 
-        password: hashedPassword, 
-        age: 22, 
-        createdAt: new Date(), 
-        updatedAt: new Date() 
+      {
+        name: "Margarida",
+        email: "margarida@gmail.com",
+        password: hashedPassword,
+        age: 22,
+        photo: "/public/images/user1.png",
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: "Chris",
+        email: "chris@gmail.com",
+        password: hashedPassword,
+        age: 22,
+        photo: "/public/images/user1.png",
+        createdAt: new Date(),
+        updatedAt: new Date()
       }
     ];
 
