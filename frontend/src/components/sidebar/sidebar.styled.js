@@ -3,19 +3,20 @@ import styled from "styled-components";
 export const SidebarStyled = styled.aside`
   position: absolute;
   background-color: ${(props) => props.theme.color.cerulean};
-  width: 300px;
-  height: calc(100vh - 90px - 37px);
+  width: 100%;
+  height: calc(100vh - 90px - 124px);
   font-family: inter;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  left: ${({ $collapsed }) => ($collapsed ? "-300px" : "0")};
+  left: ${({ $collapsed }) => ($collapsed ? "-100%" : "0")};
   transition: left 0.7s ease;
   img {
     cursor: pointer;
     transition: transform 0.3s ease, opacity 0.3s ease;
   }
+  overflow-y: auto;
 `;
 
 export const SidebarTitleContainer = styled.div`
