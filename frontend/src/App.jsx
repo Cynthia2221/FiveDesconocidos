@@ -3,6 +3,7 @@ import { Main } from "./components/main/main";
 import { AppRoutes } from "./routes/appRoutes";
 import { Sidebar } from "./components/sidebar/sidebar";
 import { Footer } from "./components/footer/footer";
+import Header from "./components/header/Header";
 
 import { useState } from "react";
 
@@ -27,11 +28,7 @@ const App = () => {
   return (
     <>
       {/* Header */}
-      {!isAuthPage && (
-        <header>
-          <h1>Header</h1>
-        </header>
-      )}
+      {!isAuthPage && <Header toggleSidebar={toggleSidebar} />}
 
       {/* Sidebar */}
       {!isAuthPage && <Sidebar collapsed={collapsed} toggleSidebar={toggleSidebar} />}
@@ -41,7 +38,7 @@ const App = () => {
       </Main>
 
       {/* Footer */}
-      {!isAuthPage && <Footer toggleSidebar={toggleSidebar} />}
+      {!isAuthPage && <Footer />}
     </>
   );
 };

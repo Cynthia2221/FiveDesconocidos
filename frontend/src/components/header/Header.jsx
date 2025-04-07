@@ -10,7 +10,7 @@ const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #2B6985;
+  background-color: #2b6985;
   padding: 10px 20px;
   height: 124px;
   display: flex;
@@ -30,7 +30,7 @@ const LeftSection = styled.div`
 const SearchContainer = styled.div`
   display: flex;
   height: 33px;
-  padding: 0px 21px 0px 198px;
+  padding: 0px 10px;
   justify-content: flex-end;
   align-items: center;
   flex-shrink: 0;
@@ -50,7 +50,7 @@ const SearchInput = styled.input`
 const SearchIcon = styled.img`
   width: 18px;
   height: 18px;
-  `;
+`;
 
 const MenuIcon = styled.img`
   width: 18px;
@@ -71,7 +71,7 @@ const BellIcon = styled.img`
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
- `;
+`;
 
 const ProfileImage = styled.img`
   border-radius: 60%;
@@ -82,11 +82,11 @@ const ProfileImage = styled.img`
   height: 60px;
 `;
 
-const Header = () => {
+const Header = ({ toggleSidebar }) => {
   return (
     <HeaderContainer>
       <LeftSection>
-        <MenuIcon src={menuIcon} alt="Menu" />
+        <MenuIcon src={menuIcon} alt="Menu" onClick={toggleSidebar} />
         <BellIcon src={bellIcon} alt="Notifications" />
         <SearchContainer>
           <SearchInput type="text" placeholder="" />

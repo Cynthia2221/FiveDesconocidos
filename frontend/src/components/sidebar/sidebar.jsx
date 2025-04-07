@@ -35,25 +35,25 @@ export const Sidebar = ({ collapsed, toggleSidebar }) => {
       <SidebarLogoutLinkContainer>
         <SidebarLinksContainer>
           <SidebarLink>
-            <Link to="/home">
+            <Link to="/home" onClick={toggleSidebar}>
               <img src={home} alt="home icon" />
               <p>Home</p>
             </Link>
           </SidebarLink>
           <SidebarLink>
-            <Link to="/calendar">
+            <Link to="/calendar" onClick={toggleSidebar}>
               <img src={calendar} alt="calendar icon" />
               <p>Calendar</p>
             </Link>
           </SidebarLink>
           <SidebarLink>
-            <Link to="/subject">
+            <Link to="/subject" onClick={toggleSidebar}>
               <img src={subjetcs} alt="subjetcs icon" />
               <p>Subjects & Links</p>
             </Link>
           </SidebarLink>
           <SidebarLink>
-            <Link to="/settings">
+            <Link to="/settings" onClick={toggleSidebar}>
               <img src={settings} alt="settings icon" />
               <p>Settings</p>
             </Link>
