@@ -17,7 +17,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   Subject.init({
     name: DataTypes.STRING,
-    description: DataTypes.STRING
+    description: DataTypes.STRING,
+    photo: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Subject',
