@@ -12,6 +12,7 @@ export const SidebarStyled = styled.aside`
   justify-content: space-between;
   left: ${({ $collapsed }) => ($collapsed ? "-100%" : "0")};
   transition: left 0.7s ease;
+  z-index: 9999;
   img {
     cursor: pointer;
     transition: transform 0.3s ease, opacity 0.3s ease;
