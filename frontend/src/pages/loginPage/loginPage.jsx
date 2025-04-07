@@ -9,36 +9,28 @@ import logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { loginUser } from "../../services/login.service";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
 
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
-  const [validUser, setValidUser] = useState(false);
-  const [validPassword, setValidPassword] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleUserChange = (e) => {
-    const enteredUser = e.target.value;
-    const userRegex = /^[0-9A-Za-z]{6,16}$/;
-    setUser(enteredUser);
-    setValidUser(userRegex.test(enteredUser));
-  };
-
-  const handlePasswordChange = (e) => {
-    const enteredPassword = e.target.value;
-    setPassword(enteredPassword);
-    setValidPassword(enteredPassword.length >= 6);
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validUser && validPassword) {
-      console.log("Form submitted successfully!");
-      console.log({ user, password });
+    setErrorMessage(""); // Resetear mensaje de error antes del intento
+
+    try {
+      const result = await loginUser(user, password);
+      console.log("Login exitoso:", result);
+
+      localStorage.setItem("token", result.token);
       navigate("/home");
-    } else {
-      console.log("Form submission failed. Please fix the errors.");
+    } catch (error) {
+      console.error("Error al iniciar sesión:", error.message);
+      setErrorMessage("Invalid username or password.");
     }
   };
 
@@ -54,52 +46,39 @@ export const LoginPage = () => {
         <LoginInputContainer>
           <label htmlFor="user">User</label>
           <input
-            style={{
-              border:
-                user === ""
-                  ? "2px solid #2B6985"
-                  : validUser
-                  ? "2px solid #2B6985"
-                  : "2px solid red",
-            }}
             id="user"
             value={user}
-            onChange={handleUserChange}
+            onChange={(e) => setUser(e.target.value)}
             type="text"
+            style={{
+              border: "2px solid #2B6985",
+            }}
           />
-          {user && !validUser && (
-            <span style={{ color: "red", fontSize: "small" }}>
-              Please enter a valid user (6-16 alphanumeric characters)
-            </span>
-          )}
         </LoginInputContainer>
         <LoginInputContainer>
           <label htmlFor="password">Password</label>
           <input
             id="password"
-            style={{
-              border:
-                password === ""
-                  ? "2px solid #2B6985"
-                  : validPassword
-                  ? "2px solid #2B6985"
-                  : "2px solid red",
-            }}
             value={password}
-            onChange={handlePasswordChange}
+            onChange={(e) => setPassword(e.target.value)}
             type="password"
+            style={{
+              border: "2px solid #2B6985",
+            }}
           />
-          {password && !validPassword && (
-            <span style={{ color: "red", fontSize: "small" }}>
-              Password must be at least 6 characters long
-            </span>
-          )}
         </LoginInputContainer>
+
+        {errorMessage && (
+          <div style={{ color: "red", fontSize: "small", marginTop: "8px" }}>
+            {errorMessage}
+          </div>
+        )}
+
         <button
-          disabled={!validUser || !validPassword}
+          disabled={!user || !password}
           style={{
-            opacity: !validUser || !validPassword ? 0.3 : 1,
-            cursor: !validUser,
+            opacity: !user || !password ? 0.3 : 1,
+            cursor: !user || !password ? "not-allowed" : "pointer",
           }}
           type="submit"
         >
@@ -108,9 +87,8 @@ export const LoginPage = () => {
       </form>
       <LoginFooter>
         <p>
-          Don’t you have an account?
           <span>
-            <Link to="/register">Sign in</Link>
+            <Link to="/register">Create new account</Link>
           </span>
         </p>
       </LoginFooter>

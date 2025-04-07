@@ -1,7 +1,6 @@
 "use strict";
 
 const bcrypt = require("bcryptjs");
-const { generateToken } = require("../utils");
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -11,68 +10,88 @@ module.exports = {
 
     // Datos iniciales de los usuarios
     const users = [
-      {
-        name: "Mayer",
-        email: "mayer@gmail.com",
-        password: hashedPassword,
-        age: 20,
-        createdAt: new Date(),
-        updatedAt: new Date()
+      { 
+        name: "Mayer", 
+        email: "mayer@gmail.com", 
+        password: hashedPassword, 
+        age: 20, 
+        createdAt: new Date(), 
+        updatedAt: new Date() 
       },
-      {
-        name: "Cynthia",
-        email: "cynthia@gmail.com",
-        password: hashedPassword,
-        age: 30,
-        createdAt: new Date(),
-        updatedAt: new Date()
+      { 
+        name: "Cynthia", 
+        email: "cynthia@gmail.com", 
+        password: hashedPassword, 
+        age: 30, 
+        createdAt: new Date(), 
+        updatedAt: new Date() },
+      { 
+        name: "William", 
+        email: "william@gmail.com", 
+        password: hashedPassword, 
+        age: 22, 
+        createdAt: new Date(), 
+        updatedAt: new Date() 
       },
-      {
-        name: "William",
-        email: "william@gmail.com",
-        password: hashedPassword,
-        age: 22,
-        createdAt: new Date(),
-        updatedAt: new Date()
+      { 
+        name: "Margarida", 
+        email: "margarida@gmail.com", 
+        password: hashedPassword, 
+        age: 22, 
+        createdAt: new Date(), 
+        updatedAt: new Date() 
       },
-      {
-        name: "Margarida",
-        email: "margarida@gmail.com",
-        password: hashedPassword,
-        age: 22,
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        name: "Chris",
-        email: "chris@gmail.com",
-        password: hashedPassword,
-        age: 22,
-        createdAt: new Date(),
-        updatedAt: new Date()
+      { 
+        name: "Chris", 
+        email: "chris@gmail.com", 
+        password: hashedPassword, 
+        age: 22, 
+        createdAt: new Date(), 
+        updatedAt: new Date() 
       }
     ];
 
-    // Insertar datos en la tabla Users
+    // Insertar usuarios en la tabla Users
     await queryInterface.bulkInsert("Users", users, {});
 
-    // Obtener los usuarios insertados
+    // Obtener los IDs de los usuarios insertados
     const insertedUsers = await queryInterface.sequelize.query(
-      `SELECT id, name, email FROM Users`,
+      `SELECT id FROM Users`,
       { type: Sequelize.QueryTypes.SELECT }
     );
 
-    // Generar tokens para los usuarios
-    insertedUsers.forEach((user) => {
-      const token = generateToken(user);
-      console.log(`Token for ${user.name} (${user.email}): ${token}`);
+    // Obtener los IDs de las asignaturas existentes
+    const subjects = await queryInterface.sequelize.query(
+      `SELECT id FROM Subjects`,
+      { type: Sequelize.QueryTypes.SELECT }
+    );
+
+    if (subjects.length === 0) {
+      console.warn("⚠ No hay asignaturas en la base de datos. No se asignarán materias a los usuarios.");
+      return;
+    }
+
+    // Crear relaciones en UserSubjects (asignar una asignatura aleatoria a cada usuario)
+    const userSubjects = insertedUsers.map(user => {
+      const randomSubject = subjects[Math.floor(Math.random() * subjects.length)];
+      return {
+        userId: user.id,
+        subjectId: randomSubject.id,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      };
     });
+
+    // Insertar relaciones en la tabla UserSubjects
+    await queryInterface.bulkInsert("UserSubjects", userSubjects, {});
   },
 
   async down(queryInterface, Sequelize) {
+    await queryInterface.bulkDelete("UserSubjects", null, {});
     await queryInterface.bulkDelete("Users", null, {});
   },
 };
+
 
 
 // npx sequelize-cli db:migrate

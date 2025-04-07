@@ -1,11 +1,15 @@
 const express = require('express');
 const router = express.Router();
+const authToken = require('../controllers/auth');
+let authPost = require("../middlewares/auth")
 const levelController = require('../controllers/level.controller');
 
-router.get('/', levelController.findAll);
-router.get('/:id', levelController.findOne);
-router.post('/', levelController.create);
-router.put('/:id', levelController.update);
-router.delete('/:id', levelController.delete);
+router.get('/', authPost, authToken.isAuthenticated, levelController.findAll);
+router.get('/:id', authPost, authToken.isAuthenticated, levelController.findOne);
+router.post('/', authPost, levelController.create);
+router.put('/:id', authPost, authToken.isAuthenticated, levelController.update);
+router.delete('/:id', authPost, authToken.isAuthenticated, levelController.delete);
 
-module.exports = router;
+module.exports = (app) => {
+    app.use('/api/levels', router);
+};

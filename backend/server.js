@@ -12,14 +12,14 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(cors({ origin: "http://localhost:5173" }));
 app.use(express.json());
 
-const subjectRoutes = require('./routes/subject.routes');
-app.use('/api/subjects', subjectRoutes);
+// const subjectRoutes = require('./routes/subject.routes');
+// app.use('/api/subjects', subjectRoutes);
 
-const lessonRoutes = require('./routes/lesson.routes');
-app.use('/api/lessons', lessonRoutes);
+// const lessonRoutes = require('./routes/lesson.routes');
+// app.use('/api/lessons', lessonRoutes);
 
-const levelRoutes = require('./routes/level.routes');
-app.use('/api/levels', levelRoutes);
+// const levelRoutes = require('./routes/level.routes');
+// app.use('/api/levels', levelRoutes);
 
 const reminderRoutes = require('./routes/reminder.routes');
 app.use('/api/reminders', reminderRoutes);
@@ -39,6 +39,10 @@ db.sequelize.sync({ force: true }).then(() => {
 
 
 require("./routes/site.routes")(app);
+require("./routes/user.routes")(app);
+require("./routes/lesson.routes")(app);
+require("./routes/level.routes")(app)
+require("./routes/subject.routes")(app)
 
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to application" });
