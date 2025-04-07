@@ -9,6 +9,7 @@ import { LessonPage } from "../pages/lessonPage/lessonPage";
 import { CalendarPage } from "../pages/calendarPage/calendarPage";
 import { ProfilePage } from "../pages/profilePage/profilePage";
 import { SettingsPage } from "../pages/settingsPage/settingsPage";
+import Header from "../pages/header/Header";
 
 export const AppRoutes = () => {
   return (
@@ -17,6 +18,7 @@ export const AppRoutes = () => {
 
       <Route path="/home" element={<HomePage />} />
       <Route path="/register" element={<RegisterPage />} />
+      <Route path="/header" element={<Header />} />
 
       <Route path="/subject" element={<SubjectPage />} />
       <Route path="/subject/:subject_id" element={<DetailSubjectPage />} />
