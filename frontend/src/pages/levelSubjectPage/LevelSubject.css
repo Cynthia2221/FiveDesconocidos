@@ -1,0 +1,91 @@
+.level-subject-page {
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  color: #2b6985;
+}
+
+.level-subject-title {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.subject-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.subject-image {
+  width: 220px;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.subject-description {
+  font-size: 14px;
+  text-align: center;
+  max-width: 300px;
+  color: #555;
+}
+
+.course-title {
+  font-size: 22px;
+  margin-bottom: 16px;
+  color: #2b6985;
+  text-align: center;
+}
+
+/* SCROLL VERTICAL PARA LECCIONES */
+.course-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 420px; /* ajusta este alto según necesidad */
+  overflow-y: auto;
+  padding-right: 10px;
+  scrollbar-width: thin; /* Firefox */
+  align-items: center;
+}
+
+/* Scrollbar para navegadores Webkit (Chrome, Safari) */
+.course-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.course-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.lesson-card {
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 300px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.lesson-image {
+  width: 100%;
+  height: 110px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.lesson-title {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 6px;
+  color: #2b6985;
+}
+
+.lesson-description {
+  font-size: 14px;
+  color: #444;
+}
