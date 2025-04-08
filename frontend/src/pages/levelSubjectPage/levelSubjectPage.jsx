@@ -1,18 +1,77 @@
-import { useParams } from "react-router-dom";
+import "./LevelSubject.css";
 
 export const LevelSubjectPage = () => {
-  const { level_id } = useParams();
-  const { subject_id } = useParams();
-  console.log(level_id);
-  console.log(subject_id);
-
   return (
-    <div>
-      <h1>Level Subject Page</h1>
-      <p>Welcome to the level subject page!</p>
-      <p>
-        You are on subject {level_id} & level {subject_id}
-      </p>
+    <div className="level-subject-page">
+      <h1 className="level-subject-title">Mathematics</h1>
+
+      <div className="subject-image-container">
+        <img
+          src="/subjectsPictures/history.jpg"
+          alt="Mathematics"
+          className="subject-image"
+        />
+        <p className="subject-description">
+          Solid foundations in arithmetic and algebra. Master operations, fractions, decimals, and simple equations.
+        </p>
+      </div>
+
+      <h2 className="course-title">Course</h2>
+
+      <div className="course-scroll">
+        <div className="lesson-card">
+          <img
+            src="/subjectsPictures/music.jpg"
+            alt="Lesson 1"
+            className="lesson-image"
+          />
+          <div className="lesson-text">
+            <div className="lesson-title">Lesson 1</div>
+            <div className="lesson-description">
+              Learn about arithmetic and algebra.
+            </div>
+          </div>
+        </div>
+        <div className="lesson-card">
+          <img
+            src="/subjectsPictures/music.jpg"
+            alt="Lesson 1"
+            className="lesson-image"
+          />
+          <div className="lesson-text">
+            <div className="lesson-title">Lesson 1</div>
+            <div className="lesson-description">
+              Learn about arithmetic and algebra.
+            </div>
+          </div>
+        </div>
+        <div className="lesson-card">
+          <img
+            src="/subjectsPictures/music.jpg"
+            alt="Lesson 1"
+            className="lesson-image"
+          />
+          <div className="lesson-text">
+            <div className="lesson-title">Lesson 1</div>
+            <div className="lesson-description">
+              Learn about arithmetic and algebra.
+            </div>
+          </div>
+        </div>
+        <div className="lesson-card">
+          <img
+            src="/subjectsPictures/music.jpg"
+            alt="Lesson 1"
+            className="lesson-image"
+          />
+          <div className="lesson-text">
+            <div className="lesson-title">Lesson 1</div>
+            <div className="lesson-description">
+              Learn about arithmetic and algebra.
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
