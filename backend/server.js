@@ -6,9 +6,9 @@ require("dotenv").config();
 var path = require("path");
 
 const app = express();
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 // Middlewares
-app.use(express.static(path.join(__dirname, "public")));
 app.use(cors({ origin: "http://localhost:5173" }));
 app.use(express.json());
 
@@ -26,18 +26,12 @@ app.use('/api/reminders', reminderRoutes);
 
 app.use(express.urlencoded({ extended: true }));
 
-var corsOptions = {
-    origin: "http://localhost:5173",
-};
-app.use(cors(corsOptions));
 
 const db = require('./models')
 
 db.sequelize.sync({ force: true }).then(() => {
     console.log("Drop and re-sync db");
 });
-
-app.use('/images', express.static(path.join(__dirname, 'public/images')));
 
 require("./routes/site.routes")(app);
 require("./routes/user.routes")(app);
