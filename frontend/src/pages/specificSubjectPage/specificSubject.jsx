@@ -40,6 +40,7 @@ const Button = styled.button`
 
 const SpecificSubject = () => {
   return (
+    <>
     <Container>
       <Title>Mathematics</Title>
       <Subtitle>What level are you?</Subtitle>
@@ -47,6 +48,7 @@ const SpecificSubject = () => {
       <Button>High School</Button>
       <Button>University</Button>
     </Container>
+       </>
   );
 };
 
