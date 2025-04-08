@@ -13,11 +13,13 @@ const HeaderContainer = styled.header`
   background-color: #2b6985;
   padding: 10px 20px;
   height: 124px;
-  display: flex;
   width: 100%;
-  padding: 32px 11px 0px 13px;
-  align-items: center;
   flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    padding: 16px;  
+    height: auto;   
+  }
 `;
 
 const LeftSection = styled.div`
@@ -25,6 +27,10 @@ const LeftSection = styled.div`
   align-items: center;
   gap: 8px;
   justify-content: space-between;
+  
+  @media (max-width: 768px) {
+    gap: 4px;  
+  }
 `;
 
 const SearchContainer = styled.div`
@@ -37,6 +43,10 @@ const SearchContainer = styled.div`
   border-radius: 8px;
   width: 70%;
   background-color: white;
+
+  @media (max-width: 768px) {
+    width: 50%;  
+  }
 `;
 
 const SearchInput = styled.input`
@@ -45,21 +55,33 @@ const SearchInput = styled.input`
   background: transparent;
   width: 100%;
   font-size: 14px;
+
+  @media (max-width: 768px) {
+    font-size: 12px;  
+  }
 `;
 
 const SearchIcon = styled.img`
   width: 18px;
   height: 18px;
+
+  @media (max-width: 768px) {
+    width: 16px;
+    height: 16px;  
+  }
 `;
 
 const MenuIcon = styled.img`
   width: 18px;
   height: 10px;
-  padding: 0px;
-  margin: 0px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
+
+  @media (max-width: 768px) {
+    width: 16px;
+    height: 9px;  
+  }
 `;
 
 const BellIcon = styled.img`
@@ -71,15 +93,24 @@ const BellIcon = styled.img`
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    width: 14px;
+    height: 16px;  
+  }
 `;
 
 const ProfileImage = styled.img`
   border-radius: 60%;
-  flex-shrink: 0;
-  margin-left: 9px;
-  margin-right: 0px;
   width: 60px;
   height: 60px;
+  flex-shrink: 0;
+  margin-left: 9px;
+
+  @media (max-width: 768px) {
+    width: 45px;   
+    height: 45px;  
+  }
 `;
 
 const Header = ({ toggleSidebar }) => {
@@ -89,7 +120,7 @@ const Header = ({ toggleSidebar }) => {
         <MenuIcon src={menuIcon} alt="Menu" onClick={toggleSidebar} />
         <BellIcon src={bellIcon} alt="Notifications" />
         <SearchContainer>
-          <SearchInput type="text" placeholder="" />
+          <SearchInput type="text" placeholder="Search" />
           <SearchIcon src={searchIcon} alt="Search" />
         </SearchContainer>
       </LeftSection>
