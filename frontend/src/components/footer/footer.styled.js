@@ -14,6 +14,8 @@ export const FooterStyled = styled.footer`
   height: 90px;
   z-index: 1000;
 
+  font-family: inter;
+
   div {
     display: flex;
     flex-direction: column;
