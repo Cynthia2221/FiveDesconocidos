@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    const levels = await queryInterface.sequelize.query(`SELECT id FROM Levels`, { type: Sequelize.QueryTypes.SELECT });
+    const levels = await queryInterface.sequelize.query(`SELECT id FROM levels`, { type: Sequelize.QueryTypes.SELECT });
 
     if (levels.length === 0) {
       console.warn("⚠ No hay niveles en la base de datos. No se insertarán lecciones.");

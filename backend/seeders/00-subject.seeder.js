@@ -11,10 +11,10 @@ module.exports = {
       { name: "Physics", description: "Fenómenos físicos y leyes del universo", createdAt: new Date(), updatedAt: new Date() }
     ];
 
-    await queryInterface.bulkInsert("Subjects", subjects, {});
+    await queryInterface.bulkInsert("subjects", subjects, {});
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete("Subjects", null, {});
+    await queryInterface.bulkDelete("subjects", null, {});
   },
 };
