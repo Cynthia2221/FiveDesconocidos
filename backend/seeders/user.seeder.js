@@ -15,7 +15,7 @@ module.exports = {
         email: "mayer@gmail.com",
         password: hashedPassword,
         age: 20,
-        photo: "/public/images/user1.png",
+        photo: "/public/images/history.jpg",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -24,7 +24,7 @@ module.exports = {
         email: "cynthia@gmail.com",
         password: hashedPassword,
         age: 30,
-        photo: "/public/images/user1.png",
+        photo: "/public/images/history.jpg",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -33,7 +33,7 @@ module.exports = {
         email: "william@gmail.com",
         password: hashedPassword,
         age: 22,
-        photo: "/public/images/user1.png",
+        photo: "/public/images/history.jpg",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -42,7 +42,7 @@ module.exports = {
         email: "margarida@gmail.com",
         password: hashedPassword,
         age: 22,
-        photo: "/public/images/user1.png",
+        photo: "/public/images/history.jpg",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -51,7 +51,7 @@ module.exports = {
         email: "chris@gmail.com",
         password: hashedPassword,
         age: 22,
-        photo: "/public/images/user1.png",
+        photo: "/public/images/history.jpg",
         createdAt: new Date(),
         updatedAt: new Date()
       }
