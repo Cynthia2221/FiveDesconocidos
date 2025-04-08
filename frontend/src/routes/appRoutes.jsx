@@ -9,6 +9,7 @@ import { LessonPage } from "../pages/lessonPage/lessonPage";
 import { CalendarPage } from "../pages/calendarPage/calendarPage";
 import { ProfilePage } from "../pages/profilePage/profilePage";
 import { SettingsPage } from "../pages/settingsPage/settingsPage";
+import SpecificSubject from "../pages/specificSubjectPage/specificSubject";
 
 export const AppRoutes = () => {
   return (
@@ -26,6 +27,7 @@ export const AppRoutes = () => {
       <Route path="/calendar" element={<CalendarPage />} />
       <Route path="/profile/:user_id" element={<ProfilePage />} />
       <Route path="/settings" element={<SettingsPage />} />
+      <Route path="/specificSubject" element={<SpecificSubject />} />
     </Routes>
   );
 };

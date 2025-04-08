@@ -7,6 +7,7 @@ import Header from "./components/header/Header";
 
 import { useState } from "react";
 
+import Header from "./components/header/Header";
 const App = () => {
   const location = useLocation();
   const pathname = location.pathname;
