@@ -12,13 +12,17 @@ const Container = styled.div`
 
 const Title = styled.h1`
   color: #2B3385;
-  font-size: 24px;
+  font-family: Inter;
+  font-size: 32px;
+  font-style: normal;
   margin-bottom: 8px;
 `;
 
 const Subtitle = styled.p`
   color: #17A1FA;
-  font-size: 16px;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
   margin-bottom: 32px;
 `;
 
@@ -28,7 +32,9 @@ const Button = styled.button`
   border: none;
   padding: 12px 24px;
   border-radius: 8px;
-  font-size: 16px;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
   margin-bottom: 16px;
   width: 200px;
   cursor: pointer;

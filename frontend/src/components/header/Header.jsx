@@ -27,8 +27,13 @@ const LeftSection = styled.div`
   align-items: center;
   gap: 8px;
   justify-content: space-between;
-  
+  width:50%;
+  @media (max-width: 1076px) {
+    width:80%;
+     
+  }
   @media (max-width: 768px) {
+    width:75%;
     gap: 4px;  
   }
 `;
@@ -41,11 +46,11 @@ const SearchContainer = styled.div`
   align-items: center;
   flex-shrink: 0;
   border-radius: 8px;
-  width: 70%;
+  width: 100%;
   background-color: white;
 
-  @media (max-width: 768px) {
-    width: 50%;  
+  @media (min-width: 768px) {
+    width: 100%;  
   }
 `;
 
