@@ -9,10 +9,10 @@ module.exports = {
       { name: "University", createdAt: new Date(), updatedAt: new Date() }
     ];
 
-    await queryInterface.bulkInsert("Levels", levels, {});
+    await queryInterface.bulkInsert("levels", levels, {});
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete("Levels", null, {});
+    await queryInterface.bulkDelete("levels", null, {});
   },
 };

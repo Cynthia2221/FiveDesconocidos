@@ -22,10 +22,10 @@ module.exports = {
       });
     });
 
-    await queryInterface.bulkInsert("Lessons", lessons, {});
+    await queryInterface.bulkInsert("lessons", lessons, {});
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete("Lessons", null, {});
+    await queryInterface.bulkDelete("lessons", null, {});
   },
 };
