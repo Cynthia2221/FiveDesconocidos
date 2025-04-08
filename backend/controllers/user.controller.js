@@ -42,7 +42,8 @@ exports.create = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    const user = await User.create({ name, email, password: hashedPassword, age });
+    const photo = req.file ? `public/images/${req.file.filename}` : null;
+    const user = await User.create({ name, email, password: hashedPassword, age, photo: photo });
 
     if (subjectId) {
       const subject = await Subject.findByPk(subjectId);
@@ -71,6 +72,10 @@ exports.update = async (req, res) => {
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(password, salt);
       updatedData.password = hashedPassword;
+    }
+
+    if (req.file) {
+      updatedData.photo = `public/images/${req.file.filename}`;
     }
 
     await user.update(updatedData);

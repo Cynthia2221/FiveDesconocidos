@@ -1,8 +1,11 @@
+import logo from "../../assets/logo.png";
+import HomePageStyle from "./homePage.style";
 export const HomePage = () => {
   return (
-    <div>
-      <h1>Home Page</h1>
-      <p>Welcome to the home page!</p>
-    </div>
+    <HomePageStyle>
+      <div style={{textAlign: 'center'}}>
+      <img src={logo} width={149} height={165} alt="logo" />
+      </div>
+    </HomePageStyle>
   );
 };
