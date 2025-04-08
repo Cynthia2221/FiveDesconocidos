@@ -3,9 +3,12 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import "./SubjectPage.css";
 
 import { Container } from "../../components/container/container";
+import useSubjects from "../../hooks/useSubjects";
+import SubjectCard from "../../components/subjectCard/SubjectCard";
 
 export const SubjectPage = () => {
   const carouselRef = useRef(null);
+  const { subjects } = useSubjects();
 
   const scrollCarousel = (direction) => {
     const scrollAmount = 160;
@@ -24,24 +27,11 @@ export const SubjectPage = () => {
 
         <div className="carousel-container">
           <div className="carousel" ref={carouselRef}>
-            <div className="card">
-              <img src="/subjectsPictures/history.jpg" alt="Subject 1" />
-            </div>
-            <div className="card">
-              <img src="/subjectsPictures/music.jpg" alt="Subject 2" />
-            </div>
-            <div className="card">
-              <img src="/subjectsPictures/history.jpg" alt="Subject 1" />
-            </div>
-            <div className="card">
-              <img src="/subjectsPictures/music.jpg" alt="Subject 2" />
-            </div>
-            <div className="card">
-              <img src="/subjectsPictures/history.jpg" alt="Subject 1" />
-            </div>
-            <div className="card">
-              <img src="/subjectsPictures/music.jpg" alt="Subject 2" />
-            </div>
+            {
+              subjects.map((subject) => (
+                <SubjectCard photo={subject.photo} name={subject.name} url={`${subject.id}`} />
+              ))
+            }
           </div>
 
           {/* Flechas debajo del carrusel */}
