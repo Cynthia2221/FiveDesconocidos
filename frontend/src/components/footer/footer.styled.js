@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
 export const FooterStyled = styled.footer`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -8,6 +13,7 @@ export const FooterStyled = styled.footer`
   color: ${(props) => props.theme.color.white};
   padding: 0.5rem 1.5rem;
   height: 90px;
+  z-index: 1000;
 
   div {
     display: flex;

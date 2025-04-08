@@ -21,69 +21,54 @@ export const LevelSubjectPage = () => {
       <div className="course-scroll">
         <div className="lesson-card">
           <img
-            src="/lessonsPictures/music.jpg"
+            src="/subjectsPictures/music.jpg"
             alt="Lesson 1"
             className="lesson-image"
           />
-          <div className="lesson-title">Lesson 1</div>
-          <div className="lesson-description">
-            Learn about arithmetic and algebra.
-          </div>
-        </div>
-
-        <div className="lesson-card">
-          <img
-            src="/lessonsPictures/lesson2.jpg"
-            alt="Lesson 2"
-            className="lesson-image"
-          />
-          <div className="lesson-title">Lesson 2</div>
-          <div className="lesson-description">
-            Learn geometry: 2D (triangles, circles), 3D (cubes, spheres, prisms).
+          <div className="lesson-text">
+            <div className="lesson-title">Lesson 1</div>
+            <div className="lesson-description">
+              Learn about arithmetic and algebra.
+            </div>
           </div>
         </div>
         <div className="lesson-card">
           <img
-            src="/lessonsPictures/lesson2.jpg"
-            alt="Lesson 2"
+            src="/subjectsPictures/music.jpg"
+            alt="Lesson 1"
             className="lesson-image"
           />
-          <div className="lesson-title">Lesson 2</div>
-          <div className="lesson-description">
-            Learn geometry: 2D (triangles, circles), 3D (cubes, spheres, prisms).
+          <div className="lesson-text">
+            <div className="lesson-title">Lesson 1</div>
+            <div className="lesson-description">
+              Learn about arithmetic and algebra.
+            </div>
           </div>
         </div>
         <div className="lesson-card">
           <img
-            src="/lessonsPictures/lesson2.jpg"
-            alt="Lesson 2"
+            src="/subjectsPictures/music.jpg"
+            alt="Lesson 1"
             className="lesson-image"
           />
-          <div className="lesson-title">Lesson 2</div>
-          <div className="lesson-description">
-            Learn geometry: 2D (triangles, circles), 3D (cubes, spheres, prisms).
+          <div className="lesson-text">
+            <div className="lesson-title">Lesson 1</div>
+            <div className="lesson-description">
+              Learn about arithmetic and algebra.
+            </div>
           </div>
         </div>
         <div className="lesson-card">
           <img
-            src="/lessonsPictures/lesson2.jpg"
-            alt="Lesson 2"
+            src="/subjectsPictures/music.jpg"
+            alt="Lesson 1"
             className="lesson-image"
           />
-          <div className="lesson-title">Lesson 2</div>
-          <div className="lesson-description">
-            Learn geometry: 2D (triangles, circles), 3D (cubes, spheres, prisms).
-          </div>
-        </div>
-        <div className="lesson-card">
-          <img
-            src="/lessonsPictures/lesson2.jpg"
-            alt="Lesson 2"
-            className="lesson-image"
-          />
-          <div className="lesson-title">Lesson 2</div>
-          <div className="lesson-description">
-            Learn geometry: 2D (triangles, circles), 3D (cubes, spheres, prisms).
+          <div className="lesson-text">
+            <div className="lesson-title">Lesson 1</div>
+            <div className="lesson-description">
+              Learn about arithmetic and algebra.
+            </div>
           </div>
         </div>
       </div>
