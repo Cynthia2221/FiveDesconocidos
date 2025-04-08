@@ -1,9 +1,22 @@
+import useLessons from "../../hooks/useLesson";
 import "./LevelSubject.css";
 
 export const LevelSubjectPage = () => {
+  const { lessons } = useLessons();
+
   return (
     <div className="level-subject-page">
       <h1 className="level-subject-title">Mathematics</h1>
+
+      <>
+        <p>prueba</p>
+        {
+          lessons.map((lesson) => (
+            <p>{lesson.name}</p>
+          ))
+
+        }
+      </>
 
       <div className="subject-image-container">
         <img

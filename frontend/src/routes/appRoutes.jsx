@@ -20,14 +20,15 @@ export const AppRoutes = () => {
       <Route path="/register" element={<RegisterPage />} />
 
       <Route path="/subject" element={<SubjectPage />} />
-      <Route path="/subject/:subject_id" element={<DetailSubjectPage />} />
-      <Route path="/subject/level" element={<LevelSubjectPage />} />
-      <Route path="/subject/:subject_id/:level_id/:lesson_id" element={<LessonPage />} />
+      {/* <Route path="/subject/:subject_id" element={<DetailSubjectPage />} /> */}
+      <Route path="/subject/:subject_id/level" element={<SpecificSubject />} />
+      <Route path="/subject/:subject_id/level/:level_id" element={<LevelSubjectPage />} />
+      <Route path="/subject/:subject_id/level/:level_id/:lesson_id" element={<LessonPage />} />
 
       <Route path="/calendar" element={<CalendarPage />} />
       <Route path="/profile/:user_id" element={<ProfilePage />} />
       <Route path="/settings" element={<SettingsPage />} />
-      <Route path="/specificSubject" element={<SpecificSubject />} />
+
     </Routes>
   );
 };

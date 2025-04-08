@@ -1,4 +1,4 @@
-const { Lesson } = require("../models");
+const { Subject, Level, Lesson } = require('../models');
 
 exports.findAll = async (req, res) => {
   try {
@@ -8,6 +8,53 @@ exports.findAll = async (req, res) => {
     res.status(500).json({ message: "Error al obtener las materias", error });
   }
 };
+
+exports.findLessonByLevel = async (req, res) => {
+  try {
+    const { subjectId, levelId } = req.query;
+
+    if (!subjectId || !levelId) {
+      return res.status(400).json({ error: 'Both subjectId and levelId are required' });
+    }
+
+    const result = await Subject.findAll({
+      where: { id: subjectId },
+      attributes: ['name', 'description'],
+      include: [{
+        model: Level,
+        where: { id: levelId },
+        through: {
+          where: { subjectId: subjectId },
+          attributes: []
+        },
+        required: true,
+        include: [{
+          model: Lesson,
+          attributes: ['name', 'url'],
+          required: true
+        }]
+      }]
+    });
+
+    // Formatear la respuesta para que coincida con tu SQL original
+    const formattedResult = result.map(subject => {
+      return subject.Levels.map(level => {
+        return level.Lessons.map(lesson => ({
+          subjectName: subject.name,
+          subjectDescription: subject.description,
+          lessonName: lesson.name,
+          lessonUrl: lesson.url
+        }));
+      }).flat();
+    }).flat();
+
+    res.json(formattedResult);
+  } catch (error) {
+    console.error('Error fetching lessons:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
 
 exports.findOne = async (req, res) => {
   try {
