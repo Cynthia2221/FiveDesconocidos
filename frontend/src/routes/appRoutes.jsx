@@ -9,7 +9,7 @@ import { LessonPage } from "../pages/lessonPage/lessonPage";
 import { CalendarPage } from "../pages/calendarPage/calendarPage";
 import { ProfilePage } from "../pages/profilePage/profilePage";
 import { SettingsPage } from "../pages/settingsPage/settingsPage";
-
+import { AboutUs } from "../pages/aboutus/aboutUs";
 export const AppRoutes = () => {
   return (
     <Routes>
@@ -26,6 +26,7 @@ export const AppRoutes = () => {
       <Route path="/calendar" element={<CalendarPage />} />
       <Route path="/profile/:user_id" element={<ProfilePage />} />
       <Route path="/settings" element={<SettingsPage />} />
+      <Route path="/aboutUs" element={<AboutUs /> } />
     </Routes>
   );
 };
