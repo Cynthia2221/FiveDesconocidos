@@ -4,7 +4,7 @@ export const SidebarStyled = styled.aside`
   position: absolute;
   background-color: ${(props) => props.theme.color.cerulean};
   width: 100%;
-  height: calc(100vh - 90px - 124px);
+  height: calc(100vh - 90px - 77px);
   font-family: inter;
   padding: 1rem;
   display: flex;
