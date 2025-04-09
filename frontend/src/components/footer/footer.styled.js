@@ -12,6 +12,9 @@ export const FooterStyled = styled.footer`
   color: ${(props) => props.theme.color.white};
   padding: 0.5rem 1.5rem;
   height: 90px;
+  z-index: 1000;
+
+  font-family: inter;
 
   div {
     display: flex;

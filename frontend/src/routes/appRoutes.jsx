@@ -20,13 +20,13 @@ export const AppRoutes = () => {
 
       <Route path="/subject" element={<SubjectPage />} />
       <Route path="/subject/:subject_id" element={<DetailSubjectPage />} />
-      <Route path="/subject/:subject_id/:level_id" element={<LevelSubjectPage />} />
+      <Route path="/subject/level" element={<LevelSubjectPage />} />
       <Route path="/subject/:subject_id/:level_id/:lesson_id" element={<LessonPage />} />
 
       <Route path="/calendar" element={<CalendarPage />} />
       <Route path="/profile/:user_id" element={<ProfilePage />} />
       <Route path="/settings" element={<SettingsPage />} />
-      <Route path="/aboutUs" element={<AboutUs /> } />
+      <Route path="/aboutUs" element={<AboutUs />} />
     </Routes>
   );
 };

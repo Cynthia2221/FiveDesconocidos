@@ -1,0 +1,67 @@
+{
+  "course": {
+    "title": "Mathematics",
+    "lessons": [
+      {
+        "id": 1,
+        "title": "Lesson 1",
+        "description": "Master basic arithmetic and algebra concepts to build a strong foundation.",
+        "video": "https://www.youtube.com/embed/OmJ-4B-mS-Y",
+        "thumbnail": "/images/lesson.png",
+        "content": [
+          "Introduction to arithmetic operations: addition, subtraction, multiplication, and division.",
+          "Understanding the order of operations (PEMDAS).",
+          "Basic algebraic expressions and how to simplify them."
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Lesson 2",
+        "description": "Learn to convert fractions and decimals with practical examples.",
+        "video": "https://www.youtube.com/embed/Kp2bYWRQylk",
+        "thumbnail": "/images/lesson2.png",
+        "content": [
+          "Understanding fractions and their components (numerator and denominator).",
+          "Converting fractions to decimals and vice versa.",
+          "Real-world applications of fractions and decimals."
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Lesson 3",
+        "description": "Understand variables and solve simple equations step by step.",
+        "video": "https://www.youtube.com/embed/0Be_6Qaq1es",
+        "thumbnail": "/images/lesson.png",
+        "content": [
+          "Introduction to variables and their role in equations.",
+          "Solving one-step and two-step equations.",
+          "Practical examples of equations in everyday life."
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Lesson 4",
+        "description": "Develop strategies to approach and solve math word problems.",
+        "video": "https://www.youtube.com/embed/Lbg1M0PTy1A",
+        "thumbnail": "/images/lesson2.png",
+        "content": [
+          "Breaking down word problems into manageable steps.",
+          "Identifying key information and ignoring distractions.",
+          "Using diagrams and equations to solve problems."
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Lesson 5",
+        "description": "Apply math skills to real-world scenarios like budgeting and planning.",
+        "video": "https://www.youtube.com/embed/A17b_Ncwfv0",
+        "thumbnail": "/images/lesson.png",
+        "content": [
+          "Creating a simple budget using basic math skills.",
+          "Understanding percentages in discounts and taxes.",
+          "Planning and managing time effectively with math."
+        ]
+      }
+    ]
+  }
+}

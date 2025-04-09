@@ -26,8 +26,4 @@ export const Paragraph = styled.p`
   margin-bottom: 24px;
 `;
 
-/*export const TeamPhoto = styled.img`
-  width: 200px;
-  border-radius: 50%;
-  margin-top: 32px;
-`;*/
+
