@@ -31,14 +31,17 @@ export const LevelSubjectPage = () => {
       <div className="course-scroll">
         <>
           {
-            (lessons.length > 0) ? lessons.map((lesson) => (
-              <LessonCard
-                lessonName={lesson.lesson_name}
-                lessonDescription={lesson.lesson_name}
-                lessonImg={lesson.lesson_photo}
-                url={"/subject/1/level/1/1"}
-              />
-            )) :
+            (lessons.length > 0) ? lessons.map((lesson) => {
+              console.log(lesson)
+              return (
+                <LessonCard
+                  lessonName={lesson.lesson_name}
+                  lessonDescription={lesson.lesson_description}
+                  lessonImg={lesson.lesson_photo}
+                  url={`/subject/${subject_id}/level/${level_id}/${lesson.lesson_id}`}
+                />
+              )
+            }) :
               <p>No course lessons</p>
           }
         </>

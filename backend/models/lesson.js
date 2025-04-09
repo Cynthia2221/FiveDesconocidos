@@ -16,6 +16,9 @@ module.exports = (sequelize, DataTypes) => {
   Lesson.init({
     name: DataTypes.STRING,
     url: DataTypes.STRING,
+    photo: DataTypes.STRING,
+    description: DataTypes.STRING,
+    content: DataTypes.STRING,
     levelId: {
       type: DataTypes.INTEGER,
       allowNull: false,

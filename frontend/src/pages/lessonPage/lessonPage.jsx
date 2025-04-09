@@ -1,16 +1,20 @@
-import { useParams, Link } from "react-router-dom";
-import lessonData from "../../data/lessonData.json";
+import { useParams } from "react-router-dom";
 import {
   LessonPageStyled,
   LessonPageThumbnail,
   LessonPageContent,
   LessonCourse,
 } from "./lessonPage.styled";
+import { LessonCard } from "../../components/lessonCard/LessonCard";
+import useLessons from "../../hooks/useLesson";
 
 export const LessonPage = () => {
   const { subject_id, level_id, lesson_id } = useParams();
-  const course = lessonData.course;
-  const lesson = lessonData.course.lessons.find((lesson) => lesson.id === parseInt(lesson_id));
+  const { lesson, lessons } = useLessons(level_id, subject_id, lesson_id);
+
+  console.log("lessons id", lesson_id)
+  console.log("lessons 1", lessons)
+  console.log("lesson", lesson)
 
   if (!lesson) {
     return <p>Lesson not found!</p>;
@@ -18,36 +22,38 @@ export const LessonPage = () => {
 
   return (
     <LessonPageStyled>
-      <h1>{course.title}</h1>
+      <h1>{lesson.subject_name}</h1>
       <LessonPageThumbnail>
         <iframe
           width="100%"
           height="100%"
-          src={lesson.video}
+          src={lesson.url}
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         />
       </LessonPageThumbnail>
       <LessonPageContent>
-        <h3>{lesson.title}</h3>
-        <p>{lesson.description}</p>
-        <p>{lesson.content}</p>
+        <h3>{lesson.lesson_name}</h3>
+        <p>{lesson.lesson_description}</p>
+        <p>{lesson.lesson_content}</p>
       </LessonPageContent>
       <LessonCourse>
         <h2>Course Content</h2>
         <ul>
-          {course.lessons.map((item) => (
-            <Link to={`/subject/${subject_id}/${level_id}/${item.id}`} key={item.id}>
-              <li key={item.id}>
-                <img src={item.thumbnail} alt={`Thumbnail for ${item.title}`} />
-                <div>
-                  <strong>{item.title}</strong>
-                  <p>{item.description}</p>
-                </div>
-              </li>
-            </Link>
-          ))}
+          {lessons.map((lesson) => {
+            return (
+              <>
+                < LessonCard
+                  lessonName={lesson.lesson_name}
+                  lessonDescription={lesson.lesson_description}
+                  lessonImg={lesson.lesson_photo}
+                  url={`/subject/${subject_id}/level/${level_id}/${lesson.lesson_id}`}
+                  key={lesson.lesson_id}
+                />
+              </>
+            )
+          })}
         </ul>
       </LessonCourse>
     </LessonPageStyled>
