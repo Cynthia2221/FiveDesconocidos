@@ -11,23 +11,30 @@ import { ProfilePage } from "../pages/profilePage/profilePage";
 import { SettingsPage } from "../pages/settingsPage/settingsPage";
 import SpecificSubject from "../pages/specificSubjectPage/specificSubject";
 
+import { RequireAuth } from "../components/requireAuth/requireAuth";
+import { NotFound } from "../components/notFound/notFound";
+
 export const AppRoutes = () => {
   return (
     <Routes>
-      <Route index element={<LoginPage />} />
-
-      <Route path="/home" element={<HomePage />} />
+      <Route path="/" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
 
-      <Route path="/subject" element={<SubjectPage />} />
-      <Route path="/subject/:subject_id" element={<DetailSubjectPage />} />
-      <Route path="/subject/level" element={<LevelSubjectPage />} />
-      <Route path="/subject/:subject_id/:level_id/:lesson_id" element={<LessonPage />} />
+      <Route element={<RequireAuth />}>
+        <Route path="/home" element={<HomePage />} />
 
-      <Route path="/calendar" element={<CalendarPage />} />
-      <Route path="/profile/:user_id" element={<ProfilePage />} />
-      <Route path="/settings" element={<SettingsPage />} />
-      <Route path="/specificSubject" element={<SpecificSubject />} />
+        <Route path="/subject" element={<SubjectPage />} />
+        <Route path="/subject/:subject_id" element={<DetailSubjectPage />} />
+        <Route path="/subject/:subject_id/:level_id" element={<LevelSubjectPage />} />
+        <Route path="/subject/:subject_id/:level_id/:lesson_id" element={<LessonPage />} />
+
+        <Route path="/calendar" element={<CalendarPage />} />
+        <Route path="/profile/:user_id" element={<ProfilePage />} />
+        <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/specificSubject" element={<SpecificSubject />} />
+      </Route>
+
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
