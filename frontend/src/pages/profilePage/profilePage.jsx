@@ -1,14 +1,8 @@
-import { useParams } from "react-router-dom";
+import { FavouriteSubjects } from '../../components/favouriteSubjects/favouriteSubjects';
 
-export const ProfilePage = () => {
-  const { user_id } = useParams();
-  console.log(user_id);
-
-  return (
-    <div>
-      <h1>Profile Page</h1>
-      <p>Welcome to the profile page!</p>
-      <p>You are on profile {user_id}</p>
-    </div>
-  );
-};
+export const ProfilePage = () => (
+  <ProfileContainer>
+    <h1>User Profile</h1>
+    <FavouriteSubjects />
+  </ProfileContainer>
+);
