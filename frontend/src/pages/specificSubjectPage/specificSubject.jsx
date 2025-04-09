@@ -2,7 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Container = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,7 +10,7 @@ const Container = styled.div`
   background-color: white;
 `;
 
-const Title = styled.h1`
+export const Title = styled.h1`
   color: #2B3385;
   font-family: Inter;
   font-size: 32px;
@@ -18,7 +18,7 @@ const Title = styled.h1`
   margin-bottom: 8px;
 `;
 
-const Subtitle = styled.p`
+export const Subtitle = styled.p`
   color: #17A1FA;
   font-family: Inter;
   font-size: 24px;
@@ -26,7 +26,7 @@ const Subtitle = styled.p`
   margin-bottom: 32px;
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   background-color: #2B6985;
   color: white;
   border: none;
@@ -44,7 +44,7 @@ const Button = styled.button`
   }
 `;
 
-const SpecificSubject = () => {
+export const SpecificSubject = () => {
   return (
     <>
     <Container>
@@ -58,4 +58,4 @@ const SpecificSubject = () => {
   );
 };
 
-export default SpecificSubject;
+
