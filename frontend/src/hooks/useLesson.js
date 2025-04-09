@@ -2,11 +2,11 @@ import { useEffect, useState } from "react"
 import LessonService from "../services/lesson.service"
 
 
-const useLessons = () => {
+const useLessons = (levelId, subjectId) => {
   const [lessons, setLessons] = useState([])
 
   useEffect(() => {
-    LessonService.getAll()
+    LessonService.getLessonsByLevelAndSubject(levelId, subjectId)
       .then((response) => {
         console.log(response)
         setLessons(response)

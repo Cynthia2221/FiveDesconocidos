@@ -12,9 +12,9 @@ const getAll = async () => {
   }
 };
 
-const getLessonsByLevel = async (levelId, subjectId) => {
+const getLessonsByLevelAndSubject = async (levelId, subjectId) => {
   try {
-    const response = await fetchAPI("/lessons", {
+    const response = await fetchAPI(`/lessons/subject/${subjectId}/level/${levelId}`, {
       method: "GET",
     });
     return response;
@@ -76,6 +76,7 @@ const remove = async (id) => {
 
 const LessonService = {
   getAll,
+  getLessonsByLevelAndSubject,
   show,
   create,
   update,

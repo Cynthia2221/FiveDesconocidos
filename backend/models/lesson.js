@@ -7,6 +7,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'levelId',
         onDelete: 'CASCADE'
       });
+      Lesson.belongsTo(models.Subject, {
+        foreignKey: 'subjectId',
+        onDelete: 'CASCADE'
+      });
     }
   }
   Lesson.init({
@@ -17,6 +21,16 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       references: {
         model: 'Levels',
+        key: 'id'
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
+    },
+    subjectId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Subjects',
         key: 'id'
       },
       onUpdate: 'CASCADE',

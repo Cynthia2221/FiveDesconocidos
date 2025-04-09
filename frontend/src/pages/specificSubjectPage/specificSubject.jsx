@@ -1,8 +1,9 @@
 // SpecificSubject.tsx
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import useLevels from '../../hooks/useLevels';
+import useSubjects from '../../hooks/useSubjects';
 
 const Container = styled.div`
   display: flex;
@@ -41,17 +42,21 @@ const Button = styled.button`
 `;
 
 const SpecificSubject = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const { subject_id } = useParams();
   const { levels } = useLevels();
+  const { subjects, getSubjectById } = useSubjects();
+
+  const subjectName = getSubjectById(subject_id).name;
 
   return (
     <>
       <Container>
-        <Title>Mathematics</Title>
+        <Title>{subjectName}</Title>
         <Subtitle>What level are you?</Subtitle>
         {
           levels.map((level) => (
-            <Button key={level.id} onClick={() => navigate(`/subject/1/level/${level.id}`)}>{level.name}</Button >
+            <Button key={level.id} onClick={() => navigate(`/subject/${subject_id}/level/${level.id}`)}>{level.name}</Button >
           ))
         }
       </Container>

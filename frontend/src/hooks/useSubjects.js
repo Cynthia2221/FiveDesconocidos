@@ -11,10 +11,14 @@ const useSubjects = () => {
       })
   }, [])
 
-
+  const getSubjectById = (id) => {
+    const subject = subjects.find(subject => subject.id === parseInt(id))
+    return subject ? subject : "error find subject"
+  }
 
   return {
     subjects,
+    getSubjectById,
   }
 }
 

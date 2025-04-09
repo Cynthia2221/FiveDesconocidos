@@ -1,4 +1,4 @@
-const { Subject, Level, Lesson } = require('../models');
+const { Subject, Lesson } = require('../models');
 
 exports.findAll = async (req, res) => {
   try {
@@ -10,48 +10,35 @@ exports.findAll = async (req, res) => {
 };
 
 exports.findLessonByLevel = async (req, res) => {
+  const { subjectId, levelId } = req.params;
+
   try {
-    const { subjectId, levelId } = req.query;
-
-    if (!subjectId || !levelId) {
-      return res.status(400).json({ error: 'Both subjectId and levelId are required' });
-    }
-
-    const result = await Subject.findAll({
-      where: { id: subjectId },
-      attributes: ['name', 'description'],
-      include: [{
-        model: Level,
-        where: { id: levelId },
-        through: {
-          where: { subjectId: subjectId },
-          attributes: []
-        },
-        required: true,
-        include: [{
-          model: Lesson,
-          attributes: ['name', 'url'],
-          required: true
-        }]
-      }]
+    const lessons = await Lesson.findAll({
+      where: {
+        subjectId: subjectId,
+        levelId: levelId
+      },
+      include: [
+        {
+          model: Subject,
+          attributes: ['name', 'description']
+        }
+      ],
+      attributes: ['id', 'name', 'url']
     });
 
-    // Formatear la respuesta para que coincida con tu SQL original
-    const formattedResult = result.map(subject => {
-      return subject.Levels.map(level => {
-        return level.Lessons.map(lesson => ({
-          subjectName: subject.name,
-          subjectDescription: subject.description,
-          lessonName: lesson.name,
-          lessonUrl: lesson.url
-        }));
-      }).flat();
-    }).flat();
+    const formatted = lessons.map(lesson => ({
+      subject_name: lesson.Subject.name,
+      description: lesson.Subject.description,
+      lesson_name: lesson.name,
+      lesson_id: lesson.id,
+      url: lesson.url
+    }));
 
-    res.json(formattedResult);
+    res.status(200).json(formatted);
   } catch (error) {
-    console.error('Error fetching lessons:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error('Error in the lesson:', error);
+    res.status(500).json({ error: 'Server Error' });
   }
 };
 
@@ -60,7 +47,7 @@ exports.findOne = async (req, res) => {
   try {
     const lesson = await Lesson.findByPk(req.params.id);
     if (!lesson) {
-      return res.status(404).json({ message: "Materia no encontrada" });
+      return res.status(404).json({ message: "Subject not found" });
     }
     res.json(lesson);
   } catch (error) {
