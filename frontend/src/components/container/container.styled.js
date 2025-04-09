@@ -1,5 +1,5 @@
 import styled from "styled-components";
 
 export const ContainerStyled = styled.div`
-  margin-bottom: 90px;
+  margin-bottom: 100px;
 `;
