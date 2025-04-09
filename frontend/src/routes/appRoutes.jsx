@@ -11,7 +11,7 @@ import { ProfilePage } from "../pages/profilePage/profilePage";
 import { SettingsPage } from "../pages/settingsPage/settingsPage";
 import SpecificSubject from "../pages/specificSubjectPage/specificSubject";
 import HelpSupport from "../pages/helpSupportPage/HelpSupport";
-
+import { AboutUs } from "../pages/aboutus/aboutUs";
 export const AppRoutes = () => {
   return (
     <Routes>
@@ -30,6 +30,7 @@ export const AppRoutes = () => {
       <Route path="/settings" element={<SettingsPage />} />
       <Route path="/specificSubject" element={<SpecificSubject />} />
       <Route path="/help" element={<HelpSupport />} />
+      <Route path="/aboutUs" element={<AboutUs />} />
     </Routes>
   );
 };
