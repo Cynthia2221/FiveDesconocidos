@@ -5,7 +5,6 @@ export const FooterStyled = styled.footer`
   bottom: 0;
   left: 0;
   right: 0;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,6 +13,8 @@ export const FooterStyled = styled.footer`
   padding: 0.5rem 1.5rem;
   height: 90px;
   z-index: 1000;
+
+  font-family: inter;
 
   div {
     display: flex;

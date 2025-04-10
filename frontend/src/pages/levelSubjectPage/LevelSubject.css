@@ -61,37 +61,3 @@
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 3px;
 }
-
-.lesson-card {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  max-width: 500px;
-  padding: 12px 0;
-  border-bottom: 1px solid #ccc;
-}
-
-.lesson-image {
-  width: 98px;
-  height: 98px;
-  border-radius: 12px;
-  object-fit: cover;
-  margin-right: 16px;
-}
-
-.lesson-title {
-  font-weight: bold;
-  font-size: 14px;
-  color: #2b6985;
-}
-
-.lesson-description {
-  font-size: 12px;
-  color: #555;
-}
-
-.lesson-text {
-  display: flex;
-  flex-direction: column;
-}
-

@@ -23,8 +23,10 @@ exports.findOne = async (req, res) => {
 
 exports.create = async (req, res) => {
   try {
+    const photo = req.file ? `public/images/${req.file.filename}` : null;
+
     const { name, description } = req.body;
-    const subject = await Subject.create({ name, description });
+    const subject = await Subject.create({ name, description, photo });
     res.status(201).json(subject);
   } catch (error) {
     res.status(500).json({ message: "Error al crear la materia", error });
@@ -38,6 +40,10 @@ exports.update = async (req, res) => {
 
     if (!updated) {
       return res.status(404).json({ message: "Materia no encontrada" });
+    }
+
+    if (req.file) {
+      updatedData.photo = `public/images/${req.file.filename}`;
     }
     res.json({ message: "Materia actualizada correctamente" });
   } catch (error) {

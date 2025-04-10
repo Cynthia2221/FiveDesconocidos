@@ -7,6 +7,11 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'levelId',
         onDelete: 'CASCADE'
       });
+      Level.belongsToMany(models.Subject, {
+        through: 'subjectLevels',
+        foreignKey: 'levelId',
+        otherKey: 'subjectId'
+      });
     }
   }
   Level.init({
