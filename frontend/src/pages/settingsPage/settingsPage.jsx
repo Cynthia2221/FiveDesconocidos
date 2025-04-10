@@ -18,12 +18,16 @@ import global from "../../assets/icons/global-icon.svg";
 import about from "../../assets/icons/about-icon.svg";
 import help from "../../assets/icons/help-icon.svg";
 import { Link } from "react-router-dom";
-
+import { useAuth } from "../../providers/AuthProvider";
 export const SettingsPage = () => {
+  const { loginData } = useAuth();
+
   const [isChecked, setIsChecked] = useState(false);
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
   };
+
+  console.log(loginData.user.id);
 
   return (
     <Container>
@@ -42,7 +46,7 @@ export const SettingsPage = () => {
             <ToggleSwitch />
           </SettingsItemToggle>
 
-          <Link to="/profile/:user_id">
+          <Link to={`/profile/${loginData.user.id}`}>
             <SettingsItem>
               <img src={user} alt="user icon" />
               <p>Account & Profile</p>
@@ -56,7 +60,7 @@ export const SettingsPage = () => {
             </SettingsItem>
           </Link>
 
-          <Link to="/about-us">
+          <Link to="/aboutUs">
             <SettingsItem>
               <img src={about} alt="about icon" />
               <p>About us</p>
