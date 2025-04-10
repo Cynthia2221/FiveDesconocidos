@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-# ErasmusProject
-Ejemplo
-Continuando ejemplo
-=======
 # Educare
 
 ## A free, simple, and easy-to-use learning app built with React and Node.js
@@ -96,4 +91,3 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 ---
 
 Made with 💻 by passionate developers – Happy Learning!
->>>>>>> origin
