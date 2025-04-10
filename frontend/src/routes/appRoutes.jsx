@@ -10,18 +10,14 @@ import { CalendarPage } from "../pages/calendarPage/calendarPage";
 import { ProfilePage } from "../pages/profilePage/profilePage";
 import { SettingsPage } from "../pages/settingsPage/settingsPage";
 import SpecificSubject from "../pages/specificSubjectPage/specificSubject";
-import { FavouriteSubjects } from "../components/favouriteSubjects/favouriteSubjects";
 
-import { RequireAuth } from "../components/requireAuth/requireAuth";
-import { NotFound } from "../components/notFound/notFound";
-import HelpSupport from "../pages/helpSupportPage/HelpSupport";
-import { AboutUs } from "../pages/aboutus/aboutUs";
 export const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<LoginPage />} />
-      <Route path="/register" element={<RegisterPage />} />
+      <Route index element={<LoginPage />} />
 
+      <Route path="/home" element={<HomePage />} />
+      <Route path="/register" element={<RegisterPage />} />
       {/*<Route element={<RequireAuth />}>*/}
         <Route path="/home" element={<HomePage />} />
         <Route path="/subject" element={<SubjectPage />} />

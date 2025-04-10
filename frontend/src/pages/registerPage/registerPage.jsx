@@ -8,7 +8,7 @@ import { LogoDiv } from "./registerPage.styled";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { registerUser } from "../../services/user.service"; 
+import { registerUser } from "../../services/user.service";
 
 export const RegisterPage = () => {
   const navigate = useNavigate();
@@ -58,10 +58,9 @@ export const RegisterPage = () => {
           password,
           age: Number(age),
         };
-  
+
         await registerUser(userData);
         navigate("/home");
-        console.log("Registro exitoso", userData)
       } catch (error) {
         alert("Error al registrarse: " + error.message);
       }
@@ -88,8 +87,8 @@ export const RegisterPage = () => {
                 user === ""
                   ? "2px solid #2B6985"
                   : validUser
-                  ? "2px solid #2B6985"
-                  : "2px solid red",
+                    ? "2px solid #2B6985"
+                    : "2px solid red",
             }}
           />
           {user && !validUser && (
@@ -110,8 +109,8 @@ export const RegisterPage = () => {
                 email === ""
                   ? "2px solid #2B6985"
                   : validEmail
-                  ? "2px solid #2B6985"
-                  : "2px solid red",
+                    ? "2px solid #2B6985"
+                    : "2px solid red",
             }}
           />
           {email && !validEmail && (
@@ -150,8 +149,8 @@ export const RegisterPage = () => {
                 password === ""
                   ? "2px solid #2B6985"
                   : validPassword
-                  ? "2px solid #2B6985"
-                  : "2px solid red",
+                    ? "2px solid #2B6985"
+                    : "2px solid red",
             }}
           />
           {password && !validPassword && (
