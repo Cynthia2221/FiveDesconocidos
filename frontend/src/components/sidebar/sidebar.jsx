@@ -11,7 +11,7 @@ import home from "../../assets/svg/home.svg";
 import settings from "../../assets/svg/settings.svg";
 import calendar from "../../assets/svg/calendar.svg";
 import subjetcs from "../../assets/svg/subjetcs.svg";
-import logout from "../../assets/svg/logout.svg";
+import logoutIcon from "../../assets/svg/logout.svg";
 
 import arrow from "../../assets/svg/arrowLeft.svg";
 
@@ -64,7 +64,7 @@ export const Sidebar = ({ collapsed, toggleSidebar }) => {
         </SidebarLinksContainer>
         <SidebarLogout>
           <button onClick={handleLogout}>
-            <img src={logout} alt="logout icon" />
+            <img src={logoutIcon} alt="logout icon" />
             <p>Logout</p>
           </button>
         </SidebarLogout>

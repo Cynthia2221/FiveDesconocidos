@@ -38,7 +38,6 @@ const LessonCadDescription = styled.div`
 `
 
 export const LessonCard = ({ lessonName, lessonDescription, url, lessonImg }) => {
-  console.log(lessonName)
   return (
     <>
       <LessonCardContainer to={url}>

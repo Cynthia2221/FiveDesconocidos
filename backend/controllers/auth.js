@@ -17,9 +17,7 @@ exports.signin = async (req, res) => {
   }
 
   try {
-    console.log("Entró");
     let foundUser = await login(name)
-    console.log("sigue");
 
     if (!foundUser) return res.status(404).json({ error: "User not found" });
 
