@@ -11,10 +11,11 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { loginUser } from "../../services/login.service";
 import { useAuth } from "../../providers/AuthProvider";
+import { Hero } from "../../components/hero/hero";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
-  const { login } = useAuth()
+  const { login } = useAuth();
 
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
@@ -27,7 +28,7 @@ export const LoginPage = () => {
     try {
       const result = await loginUser(user, password);
 
-      login(result)
+      login(result);
       navigate("/home");
     } catch (error) {
       console.error("Error al iniciar sesión:", error.message);
@@ -36,63 +37,64 @@ export const LoginPage = () => {
   };
 
   return (
-    <LoginPageContainer>
-      <LogoDiv>
-        <span>EDU</span>CARE
-      </LogoDiv>
-      <ImageContainer>
-        <img src={logo} alt="Logo" />
-      </ImageContainer>
-      <form onSubmit={handleSubmit}>
-        <LoginInputContainer>
-          <label htmlFor="user">User</label>
-          <input
-            id="user"
-            value={user}
-            onChange={(e) => setUser(e.target.value)}
-            type="text"
-            style={{
-              border: "2px solid #2B6985",
-            }}
-          />
-        </LoginInputContainer>
-        <LoginInputContainer>
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            type="password"
-            style={{
-              border: "2px solid #2B6985",
-            }}
-          />
-        </LoginInputContainer>
+    <>
+      <Hero />
+      <LoginPageContainer>
+        <LogoDiv>
+          <span>EDU</span>CARE
+        </LogoDiv>
+        <ImageContainer>
+          <img src={logo} alt="Logo" />
+        </ImageContainer>
+        <form onSubmit={handleSubmit}>
+          <LoginInputContainer>
+            <label htmlFor="user">User</label>
+            <input
+              id="user"
+              value={user}
+              onChange={(e) => setUser(e.target.value)}
+              type="text"
+              style={{
+                border: "2px solid #2B6985",
+              }}
+            />
+          </LoginInputContainer>
+          <LoginInputContainer>
+            <label htmlFor="password">Password</label>
+            <input
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              style={{
+                border: "2px solid #2B6985",
+              }}
+            />
+          </LoginInputContainer>
 
-        {errorMessage && (
-          <div style={{ color: "red", fontSize: "small", marginTop: "8px" }}>
-            {errorMessage}
-          </div>
-        )}
+          {errorMessage && (
+            <div style={{ color: "red", fontSize: "small", marginTop: "8px" }}>{errorMessage}</div>
+          )}
 
-        <button
-          disabled={!user || !password}
-          style={{
-            opacity: !user || !password ? 0.3 : 1,
-            cursor: !user || !password ? "not-allowed" : "pointer",
-          }}
-          type="submit"
-        >
-          Submit
-        </button>
-      </form>
-      <LoginFooter>
-        <p>
-          <span>
-            <Link to="/register">Create new account</Link>
-          </span>
-        </p>
-      </LoginFooter>
-    </LoginPageContainer>
+          <button
+            disabled={!user || !password}
+            style={{
+              opacity: !user || !password ? 0.3 : 1,
+              cursor: !user || !password ? "not-allowed" : "pointer",
+            }}
+            type="submit"
+          >
+            Submit
+          </button>
+        </form>
+        <LoginFooter>
+          <p>
+            <span>
+              <Link to="/register">Create new account</Link>
+            </span>
+          </p>
+        </LoginFooter>
+      </LoginPageContainer>
+    </>
   );
 };
