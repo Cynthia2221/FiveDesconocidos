@@ -10,9 +10,11 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { loginUser } from "../../services/login.service";
+import { useAuth } from "../../providers/AuthProvider";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
+  const { login } = useAuth()
 
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
@@ -26,7 +28,7 @@ export const LoginPage = () => {
       const result = await loginUser(user, password);
       console.log("Login exitoso:", result);
 
-      localStorage.setItem("token", result.token);
+      login(result)
       navigate("/home");
     } catch (error) {
       console.error("Error al iniciar sesión:", error.message);

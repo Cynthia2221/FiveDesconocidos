@@ -16,11 +16,14 @@ import logout from "../../assets/svg/logout.svg";
 import arrow from "../../assets/svg/arrowLeft.svg";
 
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../providers/AuthProvider";
 
 export const Sidebar = ({ collapsed, toggleSidebar }) => {
   const navigate = useNavigate();
+  const { logout } = useAuth()
 
   const handleLogout = () => {
+    logout()
     navigate("/");
   };
 
