@@ -4,7 +4,7 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     const users = await queryInterface.sequelize.query(`SELECT id FROM Users`, { type: Sequelize.QueryTypes.SELECT });
-    const subjects = await queryInterface.sequelize.query(`SELECT id FROM Subjects`, { type: Sequelize.QueryTypes.SELECT });
+    const subjects = await queryInterface.sequelize.query(`SELECT id FROM subjects`, { type: Sequelize.QueryTypes.SELECT });
 
     if (users.length === 0 || subjects.length === 0) {
       console.warn("⚠ No users or subjects in the db.");
@@ -28,10 +28,10 @@ module.exports = {
       });
     });
 
-    await queryInterface.bulkInsert("UserSubjects", userSubjects, {});
+    await queryInterface.bulkInsert("userSubjects", userSubjects, {});
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete("UserSubjects", null, {});
+    await queryInterface.bulkDelete("userSubjects", null, {});
   },
 };

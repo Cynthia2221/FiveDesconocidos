@@ -68,7 +68,7 @@ module.exports = {
 
     // Obtener los IDs de las asignaturas existentes
     const subjects = await queryInterface.sequelize.query(
-      `SELECT id FROM Subjects`,
+      `SELECT id FROM subjects`,
       { type: Sequelize.QueryTypes.SELECT }
     );
 
@@ -89,7 +89,7 @@ module.exports = {
     });
 
     // Insertar relaciones en la tabla UserSubjects
-    await queryInterface.bulkInsert("UserSubjects", userSubjects, {});
+    await queryInterface.bulkInsert("userSubjects", userSubjects, {});
   },
 
   async down(queryInterface, Sequelize) {

@@ -11,10 +11,10 @@ module.exports = {
       { name: "Geography", description: "Physical phenomena and landscape changes over time", photo: "/public/images/Geography.png", createdAt: new Date(), updatedAt: new Date() }
     ];
 
-    await queryInterface.bulkInsert("Subjects", subjects, {});
+    await queryInterface.bulkInsert("subjects", subjects, {});
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete("Subjects", null, {});
+    await queryInterface.bulkDelete("subjects", null, {});
   },
 };
