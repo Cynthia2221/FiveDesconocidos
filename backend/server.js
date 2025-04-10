@@ -1,63 +1,23 @@
+const app = require('./app');
 
-const express = require("express");
-const cors = require("cors");
-require("dotenv").config();
+require('dotenv').config();
 
-var path = require("path");
+const fs = require('fs');
+const https = require("https");
+const http = require("http");
 
-const app = express();
+const port = process.env.PORT || 80;
+let protocol = http;
+let options = {};
+if (process.env.HTTPS && process.env.HTTPS == "true") {
+  protocol = https;
+  options = { 
+    key: fs.readFileSync(`${process.env.SERVER_KEY}`), 
+    cert: fs.readFileSync(`${process.env.SERVER_CERT}`) };
+}
 
-// Middlewares
-app.use(express.static(path.join(__dirname, "public")));
-app.use(cors({ origin: "http://localhost:5173" }));
-app.use(express.json());
-
-// const subjectRoutes = require('./routes/subject.routes');
-// app.use('/api/subjects', subjectRoutes);
-
-// const lessonRoutes = require('./routes/lesson.routes');
-// app.use('/api/lessons', lessonRoutes);
-
-// const levelRoutes = require('./routes/level.routes');
-// app.use('/api/levels', levelRoutes);
-
-const reminderRoutes = require('./routes/reminder.routes');
-app.use('/api/reminders', reminderRoutes);
-
-app.use(express.urlencoded({ extended: true }));
-
-var corsOptions = {
-    origin: "http://localhost:5173",
-};
-app.use(cors(corsOptions));
-
-const db = require('./models')
-
-// db.sequelize.sync({ force: true }).then(() => {
-//     console.log("Drop and re-sync db");
-// });
-
-
-require("./routes/site.routes")(app);
-require("./routes/user.routes")(app);
-require("./routes/lesson.routes")(app);
-require("./routes/level.routes")(app)
-require("./routes/subject.routes")(app)
-
-app.get("/", (req, res) => {
-    res.json({ message: "Welcome to application" });
+protocol.createServer(options, app).listen(port, () => {
+  console.log('Server started on: ' + port);
 });
 
-// Middleware de manejo de errores
-// app.use((err, req, res, next) => {
-//   console.error(err.stack);
-//   res.status(500).json({ error: true, message: "Algo salió mal en el servidor." });
-// });
-
-const PORT = process.env.PORT || 8080;
-
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto ${PORT}`);
-});
-
-module.exports = app;
+module.exports = app; 

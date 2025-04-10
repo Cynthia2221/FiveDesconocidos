@@ -19,11 +19,11 @@ services:
     env_file:
       - .env
     ports:
-      #- "443:443" # Change the first number for different port
-      - "8080:8080" 
+      - "443:443" # Change the first number for different port
+     # - "8080:8080" 
     expose:
-      #- "443" # 443 is default for https
-      - "8080"
+      - "443" # 443 is default for https
+     # - "8080"
     networks:
       - educare-network
     depends_on:
