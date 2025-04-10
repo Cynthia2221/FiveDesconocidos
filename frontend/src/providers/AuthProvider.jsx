@@ -9,14 +9,14 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const accessToken = sessionStorage.getItem("access_token");
-    const userData = sessionStorage.getItem("user_data");
+    const accessToken = localStorage.getItem("token");
+    const userData = localStorage.getItem("user_data");
 
     if (accessToken && userData) {
       try {
         const parsedUserData = userData ? JSON.parse(userData) : null;
         setLoginData({
-          access_token: accessToken,
+          token: accessToken,
           user: parsedUserData,
         });
       } catch (error) {
@@ -25,14 +25,15 @@ export const AuthProvider = ({ children }) => {
       }
     }
     setLoading(false);
-  }, [loading]);
+  }, []);
 
   const login = (data) => {
+    console.log("auth", data)
     setLoginData(data);
-    sessionStorage.setItem("access_token", data.access_token);
+    localStorage.setItem("token", data.token);
 
     if (data.user) {
-      sessionStorage.setItem("user_data", JSON.stringify(data.user));
+      localStorage.setItem("user_data", JSON.stringify(data.user));
     }
 
     return true;
@@ -40,8 +41,8 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     setLoginData(null);
-    sessionStorage.removeItem("access_token");
-    sessionStorage.removeItem("user_data");
+    localStorage.removeItem("token");
+    localStorage.removeItem("user_data");
 
     return true;
   };
