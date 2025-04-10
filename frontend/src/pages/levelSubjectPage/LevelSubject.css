@@ -1,0 +1,63 @@
+.level-subject-page {
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  color: #2b6985;
+  padding-bottom: 110px;
+}
+
+.level-subject-title {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.subject-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.subject-image {
+  width: 220px;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.subject-description {
+  font-size: 12px;
+  text-align: center;
+  max-width: 300px;
+  color: #555;
+}
+
+.course-title {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: #000000;
+  text-align: left;
+}
+
+/* SCROLL VERTICAL PARA LECCIONES */
+.course-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 420px; /* ajusta este alto según necesidad */
+  overflow-y: auto;
+  padding-right: 10px;
+  scrollbar-width: thin; /* Firefox */
+  align-items: center;
+}
+
+/* Scrollbar para navegadores Webkit (Chrome, Safari) */
+.course-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.course-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
