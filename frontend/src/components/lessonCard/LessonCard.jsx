@@ -42,7 +42,7 @@ export const LessonCard = ({ lessonName, lessonDescription, url, lessonImg }) =>
     <>
       <LessonCardContainer to={url}>
         <LessonCardImagen
-          src={`https://0469e835-68e4-497b-b14e-ff98ab667c7a.escritorios.ieselrincon.es:443${lessonImg}`}
+          src={`http://localhost:8080${lessonImg}`}
           alt={lessonName}
         />
         <LessonText>

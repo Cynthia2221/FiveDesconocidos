@@ -1,24 +1,42 @@
-const app = require('./app');
 
-require('dotenv').config();
+const express = require("express");
+const cors = require("cors");
+require("dotenv").config();
 
-const fs = require('fs');
-const https = require("https");
-const http = require("http");
+var path = require("path");
 
-const port = process.env.PORT || 80;
-let protocol = http;
-let options = {};
-if (process.env.HTTPS && process.env.HTTPS == "true") {
-    protocol = https;
-    options = {
-        key: fs.readFileSync(`${process.env.SERVER_KEY}`),
-        cert: fs.readFileSync(`${process.env.SERVER_CERT}`)
-    };
-}
+const app = express();
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
-protocol.createServer(options, app).listen(port, () => {
-    console.log('Server started on: ' + port);
+app.use(cors({ origin: "http://localhost:5173" }));
+app.use(express.json());
+
+const reminderRoutes = require('./routes/reminder.routes');
+app.use('/api/reminders', reminderRoutes);
+
+app.use(express.urlencoded({ extended: true }));
+
+
+const db = require('./models')
+
+db.sequelize.sync({ force: true }).then(() => {
+    console.log("Drop and re-sync db");
 });
 
-module.exports = app; 
+require("./routes/site.routes")(app);
+require("./routes/user.routes")(app);
+require("./routes/lesson.routes")(app);
+require("./routes/level.routes")(app)
+require("./routes/subject.routes")(app)
+
+app.get("/", (req, res) => {
+    res.json({ message: "Welcome to application" });
+});
+
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, () => {
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
+});
+
+module.exports = app;

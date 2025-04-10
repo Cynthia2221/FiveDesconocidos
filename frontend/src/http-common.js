@@ -1,5 +1,4 @@
-// const BASE_URL = "https://localhost:8080/api";
-const BASE_URL = "https://0469e835-68e4-497b-b14e-ff98ab667c7a.escritorios.ieselrincon.es:443/api";
+const BASE_URL = "http://localhost:8080/api";
 
 const customFetch = async (endpoint, options = {}) => {
   const token = localStorage.getItem("token");
