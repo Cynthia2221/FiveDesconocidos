@@ -33,7 +33,6 @@ export const LevelSubjectPage = () => {
         <>
           {
             (lessons.length > 0) ? lessons.map((lesson) => {
-              console.log(lesson)
               return (
                 <LessonCard
                   lessonName={lesson.lesson_name}

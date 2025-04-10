@@ -26,7 +26,6 @@ export const LoginPage = () => {
 
     try {
       const result = await loginUser(user, password);
-      console.log("Login exitoso:", result);
 
       login(result)
       navigate("/home");
