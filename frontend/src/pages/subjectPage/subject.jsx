@@ -29,7 +29,7 @@ export const SubjectPage = () => {
           <div className="carousel" ref={carouselRef}>
             {
               subjects.map((subject) => (
-                <SubjectCard photo={subject.photo} name={subject.name} url={`${subject.id}`} />
+                <SubjectCard key={subject.id} photo={subject.photo} name={subject.name} url={`${subject.id}/level`} />
               ))
             }
           </div>

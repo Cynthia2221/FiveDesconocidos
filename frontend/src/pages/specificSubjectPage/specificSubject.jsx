@@ -1,6 +1,7 @@
-// SpecificSubject.tsx
-import React from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import useLevels from '../../hooks/useLevels';
+import useSubjects from '../../hooks/useSubjects';
 
 export const Container = styled.div`
   display: flex;
@@ -44,18 +45,29 @@ export const Button = styled.button`
   }
 `;
 
-export const SpecificSubject = () => {
+const SpecificSubject = () => {
+  const navigate = useNavigate();
+  const { subject_id } = useParams();
+  const { levels } = useLevels();
+  const { subjects, getSubjectById } = useSubjects();
+
+  const subjectName = getSubjectById(subject_id).name;
+
   return (
     <>
-    <Container>
-      <Title>Mathematics</Title>
-      <Subtitle>What level are you?</Subtitle>
-      <Button>Elementary</Button>
-      <Button>High School</Button>
-      <Button>University</Button>
-    </Container>
-       </>
+      <Container>
+        <Title>{subjectName}</Title>
+        <Subtitle>What level are you?</Subtitle>
+        {
+          levels.map((level) => (
+            <Button key={level.id} onClick={() => navigate(`/subject/${subject_id}/level/${level.id}`)}>{level.name}</Button >
+          ))
+        }
+      </Container>
+    </>
   );
 };
+
+export default SpecificSubject;
 
 

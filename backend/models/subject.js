@@ -13,6 +13,9 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'subjectId',
         otherKey: 'levelId'
       });
+      Subject.hasMany(models.Lesson, {
+        foreignKey: 'subjectId'
+      });
     }
   }
   Subject.init({

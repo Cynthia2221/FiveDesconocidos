@@ -1,76 +1,51 @@
+import { useParams } from "react-router-dom";
+import useLessons from "../../hooks/useLesson";
 import "./LevelSubject.css";
+import useSubjects from "../../hooks/useSubjects";
+import { LessonCard } from "../../components/lessonCard/LessonCard";
 
 export const LevelSubjectPage = () => {
+  const { subject_id, level_id } = useParams()
+  const { lessons } = useLessons(level_id, subject_id);
+  const { getSubjectById } = useSubjects();
+
+  const subjectName = getSubjectById(subject_id).name;
+  const subjectPhoto = getSubjectById(subject_id).photo;
+  const subjectDescription = getSubjectById(subject_id).description;
+
   return (
     <div className="level-subject-page">
-      <h1 className="level-subject-title">Mathematics</h1>
-
+      <h1 className="level-subject-title">{subjectName}</h1>
       <div className="subject-image-container">
         <img
-          src="/subjectsPictures/history.jpg"
+          src={`http://localhost:8080${subjectPhoto}`}
           alt="Mathematics"
           className="subject-image"
         />
         <p className="subject-description">
-          Solid foundations in arithmetic and algebra. Master operations, fractions, decimals, and simple equations.
+          {subjectDescription}
         </p>
       </div>
 
       <h2 className="course-title">Course</h2>
 
       <div className="course-scroll">
-        <div className="lesson-card">
-          <img
-            src="/subjectsPictures/music.jpg"
-            alt="Lesson 1"
-            className="lesson-image"
-          />
-          <div className="lesson-text">
-            <div className="lesson-title">Lesson 1</div>
-            <div className="lesson-description">
-              Learn about arithmetic and algebra.
-            </div>
-          </div>
-        </div>
-        <div className="lesson-card">
-          <img
-            src="/subjectsPictures/music.jpg"
-            alt="Lesson 1"
-            className="lesson-image"
-          />
-          <div className="lesson-text">
-            <div className="lesson-title">Lesson 1</div>
-            <div className="lesson-description">
-              Learn about arithmetic and algebra.
-            </div>
-          </div>
-        </div>
-        <div className="lesson-card">
-          <img
-            src="/subjectsPictures/music.jpg"
-            alt="Lesson 1"
-            className="lesson-image"
-          />
-          <div className="lesson-text">
-            <div className="lesson-title">Lesson 1</div>
-            <div className="lesson-description">
-              Learn about arithmetic and algebra.
-            </div>
-          </div>
-        </div>
-        <div className="lesson-card">
-          <img
-            src="/subjectsPictures/music.jpg"
-            alt="Lesson 1"
-            className="lesson-image"
-          />
-          <div className="lesson-text">
-            <div className="lesson-title">Lesson 1</div>
-            <div className="lesson-description">
-              Learn about arithmetic and algebra.
-            </div>
-          </div>
-        </div>
+        <>
+          {
+            (lessons.length > 0) ? lessons.map((lesson) => {
+              console.log(lesson)
+              return (
+                <LessonCard
+                  lessonName={lesson.lesson_name}
+                  lessonDescription={lesson.lesson_description}
+                  lessonImg={lesson.lesson_photo}
+                  url={`/subject/${subject_id}/level/${level_id}/${lesson.lesson_id}`}
+                />
+              )
+            }) :
+              <p>No course lessons</p>
+          }
+        </>
       </div>
     </div>
   );

@@ -2,19 +2,7 @@ import fetchAPI from "../http-common";
 
 const getAll = async () => {
   try {
-    const response = await fetchAPI("/lessons", {
-      method: "GET",
-    });
-    return response;
-  } catch (error) {
-    console.error("Error in the request getAll: ", error);
-    return null;
-  }
-};
-
-const getLessonsByLevelAndSubject = async (levelId, subjectId) => {
-  try {
-    const response = await fetchAPI(`/lessons/subject/${subjectId}/level/${levelId}`, {
+    const response = await fetchAPI("/levels", {
       method: "GET",
     });
     return response;
@@ -26,7 +14,7 @@ const getLessonsByLevelAndSubject = async (levelId, subjectId) => {
 
 const show = async (id) => {
   try {
-    const response = await fetchAPI(`/lessons/${id}`, {
+    const response = await fetchAPI(`/levels/${id}`, {
       method: "GET",
     });
     return response;
@@ -38,7 +26,7 @@ const show = async (id) => {
 
 const create = async (data) => {
   try {
-    const response = await fetchAPI("/lessons", {
+    const response = await fetchAPI("/levels", {
       method: "POST",
       body: JSON.stringify(data),
     });
@@ -51,7 +39,7 @@ const create = async (data) => {
 
 const update = async (id, data) => {
   try {
-    const response = await fetchAPI(`/lessons/${id}`, {
+    const response = await fetchAPI(`/levels/${id}`, {
       method: "PUT",
       body: JSON.stringify(data),
     });
@@ -64,7 +52,7 @@ const update = async (id, data) => {
 
 const remove = async (id) => {
   try {
-    const response = await fetchAPI(`/lessons/${id}`, {
+    const response = await fetchAPI(`/levels/${id}`, {
       method: "DELETE",
     });
     return response;
@@ -74,13 +62,12 @@ const remove = async (id) => {
   }
 };
 
-const LessonService = {
+const LevelService = {
   getAll,
-  getLessonsByLevelAndSubject,
   show,
   create,
   update,
   remove,
 };
 
-export default LessonService;
+export default LevelService;
