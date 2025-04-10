@@ -10,9 +10,10 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       favorites: {
-        allowNull: true,
+        allowNull: false,
         autoIncrement: false,
         primaryKey: false,
+        defaultValue: false,
         type: Sequelize.BOOLEAN
       },
       userId: {

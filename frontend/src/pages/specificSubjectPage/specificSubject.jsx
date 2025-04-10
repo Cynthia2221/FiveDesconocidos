@@ -1,5 +1,3 @@
-// SpecificSubject.tsx
-import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import useLevels from '../../hooks/useLevels';
@@ -69,5 +67,7 @@ const SpecificSubject = () => {
     </>
   );
 };
+
+export default SpecificSubject;
 
 

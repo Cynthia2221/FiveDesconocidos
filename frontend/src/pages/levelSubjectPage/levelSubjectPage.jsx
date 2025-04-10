@@ -10,6 +10,7 @@ export const LevelSubjectPage = () => {
   const { getSubjectById } = useSubjects();
 
   const subjectName = getSubjectById(subject_id).name;
+  const subjectPhoto = getSubjectById(subject_id).photo;
   const subjectDescription = getSubjectById(subject_id).description;
 
   return (
@@ -17,7 +18,7 @@ export const LevelSubjectPage = () => {
       <h1 className="level-subject-title">{subjectName}</h1>
       <div className="subject-image-container">
         <img
-          src="/subjectsPictures/history.jpg"
+          src={`http://localhost:8080${subjectPhoto}`}
           alt="Mathematics"
           className="subject-image"
         />

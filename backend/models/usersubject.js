@@ -12,11 +12,43 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'subjectId',
         onDelete: 'CASCADE'
       });
+
+      UserSubject.belongsTo(models.Lesson, {
+        foreignKey: 'lessonId',
+        onDelete: 'SET NULL'
+      });
     }
   }
   UserSubject.init({
-    userId: DataTypes.INTEGER,
-    subjectId: DataTypes.INTEGER
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Users',
+        key: 'id'
+      }
+    },
+    subjectId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Subjects',
+        key: 'id'
+      }
+    },
+    lessonId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: 'Lessons',
+        key: 'id'
+      }
+    },
+    favorites: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+      defaultValue: false
+    }
   }, {
     sequelize,
     modelName: 'UserSubject',
