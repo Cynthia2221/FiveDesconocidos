@@ -22,7 +22,7 @@ export const AppRoutes = () => {
       <Route path="/" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
 
-      <Route element={<RequireAuth />}>
+      {/* <Route element={<RequireAuth />}> */}
         <Route path="/home" element={<HomePage />} />
 
         <Route path="/subject" element={<SubjectPage />} />
@@ -30,11 +30,11 @@ export const AppRoutes = () => {
         <Route path="/subject/:subject_id/:level_id" element={<LevelSubjectPage />} />
         <Route path="/subject/:subject_id/:level_id/:lesson_id" element={<LessonPage />} />
 
-        <Route path="/calendar" element={<CalendarPage />} />
-        <Route path="/profile/:user_id" element={<ProfilePage />} />
+        {/* <Route path="/calendar" element={<CalendarPage />} /> */}
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/specificSubject" element={<SpecificSubject />} />
-      </Route>
+      {/* </Route> */}
 
       <Route path="*" element={<NotFound />} />
       {/* <Route path="/calendar" element={<CalendarPage />} /> */}
@@ -43,7 +43,7 @@ export const AppRoutes = () => {
       <Route path="/profile" element={<ProfilePage />} /> */}
       {/* <Route path="/settings" element={<SettingsPage />} />
       <Route path="/specificSubject" element={<SpecificSubject />} /> */}
-      {/* <Route path="/favouriteSubjects" element={<FavouriteSubjects />} /> */}
+      <Route path="/favouriteSubjects" element={<FavouriteSubjects />} />
       <Route path="/help" element={<HelpSupport />} />
       <Route path="/aboutUs" element={<AboutUs />} />
     </Routes>
