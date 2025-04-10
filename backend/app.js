@@ -9,7 +9,7 @@ const app = express();
 
 // Middlewares
 app.use(express.static(path.join(__dirname, "public")));
-app.use(cors({ origin: "https://a016b02f-fea3-4b5b-8b9b-628a3e467d3d.escritorios.ieselrincon.es" }));
+app.use(cors({ origin: "*" }));
 app.use(express.json());
 
 // const subjectRoutes = require('./routes/subject.routes');
@@ -27,7 +27,7 @@ app.use('/api/reminders', reminderRoutes);
 app.use(express.urlencoded({ extended: true }));
 
 var corsOptions = {
-    origin: "https://a016b02f-fea3-4b5b-8b9b-628a3e467d3d.escritorios.ieselrincon.es",
+    origin: "*",
 };
 app.use(cors(corsOptions));
 
