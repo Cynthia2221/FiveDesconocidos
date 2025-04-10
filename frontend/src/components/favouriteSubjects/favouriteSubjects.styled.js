@@ -5,6 +5,11 @@ export const ProfileContainer = styled.div`
 `;
 
 export const SectionTitle = styled.h2`
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 121.095%; /* 29.063px */
   text-align: center;
   margin-bottom: 2rem;
 `;
@@ -19,6 +24,10 @@ export const SubjectsGrid = styled.div`
 
 export const SubjectCard = styled.div`
   text-align: center;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;     
 `;
 
 export const SubjectImage = styled.img`
@@ -30,7 +39,13 @@ export const SubjectImage = styled.img`
 `;
 
 export const SubjectName = styled.p`
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
   font-size: 1rem;
   font-weight: 500;
+  margin-bottom: 1rem;
 `;
 

@@ -2,8 +2,9 @@ import { useLocation } from "react-router-dom";
 import { Main } from "./components/main/main";
 import { AppRoutes } from "./routes/appRoutes";
 import { Sidebar } from "./components/sidebar/sidebar";
-import  { Footer }  from "./components/footer/footer";
-import {Header} from "./components/header/Header";
+import { Footer } from "./components/footer/footer";
+import { Header } from "./components/header/Header";
+import { HeaderProfile } from "./components/headerProfile/headerProfile";
 
 import { useState } from "react";
 
@@ -11,12 +12,11 @@ import { useState } from "react";
 const App = () => {
   const location = useLocation();
   const pathname = location.pathname;
-
+  const isProfilePage = pathname === "/profile";
   const isAuthPage = pathname === "/register" || pathname === "/";
 
   const [collapsed, setCollapsed] = useState(() => {
     const savedState = localStorage.getItem("sidebarCollapsed");
-
     return savedState ? savedState === "true" : true;
   });
 
@@ -29,10 +29,17 @@ const App = () => {
   return (
     <>
       {/* Header */}
-      {!isAuthPage && <Header toggleSidebar={toggleSidebar} />}
+      {isProfilePage ? (
+        <HeaderProfile toggleSidebar={toggleSidebar} />
+      ) : (
+        !isAuthPage && <Header toggleSidebar={toggleSidebar} />
+      )}
 
       {/* Sidebar */}
-      {!isAuthPage && <Sidebar collapsed={collapsed} toggleSidebar={toggleSidebar} />}
+      {!isAuthPage && (
+        <Sidebar collapsed={collapsed} toggleSidebar={toggleSidebar} />
+      )}
+
       {/* Main */}
       <Main>
         <AppRoutes />

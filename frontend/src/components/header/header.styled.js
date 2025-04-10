@@ -6,13 +6,13 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   background-color: #2b6985;
   padding: 10px 20px;
-  height: 124px;
+  height: 338.859px !important;
   width: 100%;
   flex-shrink: 0;
 
   @media (max-width: 768px) {
     padding: 16px;  
-    height: auto;   
+    height: auto;
   }
 `;
 

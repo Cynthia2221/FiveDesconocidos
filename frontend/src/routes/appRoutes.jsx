@@ -34,13 +34,16 @@ export const AppRoutes = () => {
         <Route path="/profile/:user_id" element={<ProfilePage />} />
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/specificSubject" element={<SpecificSubject />} />
+      </Route>
 
       <Route path="*" element={<NotFound />} />
       {/* <Route path="/calendar" element={<CalendarPage />} /> */}
-      <Route path="/profile/:user_id" element={<ProfilePage />} />
-      <Route path="/settings" element={<SettingsPage />} />
-      <Route path="/specificSubject" element={<SpecificSubject />} />
-      <Route path="/favouriteSubjects" element={<FavouriteSubjects />} />
+      {/* <Route path="/profile/:user_id" element={<ProfilePage />} />
+      <Route path="/calendar" element={<CalendarPage />} />
+      <Route path="/profile" element={<ProfilePage />} /> */}
+      {/* <Route path="/settings" element={<SettingsPage />} />
+      <Route path="/specificSubject" element={<SpecificSubject />} /> */}
+      {/* <Route path="/favouriteSubjects" element={<FavouriteSubjects />} /> */}
       <Route path="/help" element={<HelpSupport />} />
       <Route path="/aboutUs" element={<AboutUs />} />
     </Routes>
