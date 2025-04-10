@@ -23,7 +23,7 @@ const CardImg = styled.img`
 const SubjectCard = ({ photo, name, url }) => {
   return (
     <CardContainer to={url}>
-      <CardImg src={`https://0469e835-68e4-497b-b14e-ff98ab667c7a.escritorios.ieselrincon.es:443${photo}`} alt={`imagen of ${name} subject`} />
+      <CardImg src={`http://localhost:8080${photo}`} alt={`imagen of ${name} subject`} />
     </CardContainer>
   )
 }

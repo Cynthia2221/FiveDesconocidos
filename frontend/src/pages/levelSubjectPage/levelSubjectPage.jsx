@@ -18,7 +18,7 @@ export const LevelSubjectPage = () => {
       <h1 className="level-subject-title">{subjectName}</h1>
       <div className="subject-image-container">
         <img
-          src={`https://0469e835-68e4-497b-b14e-ff98ab667c7a.escritorios.ieselrincon.es:443${subjectPhoto}`}
+          src={`http://localhost:8080${subjectPhoto}`}
           alt="Mathematics"
           className="subject-image"
         />
