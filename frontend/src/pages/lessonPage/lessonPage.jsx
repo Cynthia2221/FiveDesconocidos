@@ -40,17 +40,15 @@ export const LessonPage = () => {
         <LessonCourse>
           <h2>Course Content</h2>
           <ul>
-            {lessons.map((lesson) => {
+            {lessons.map((lesson, index) => {
               return (
-                <>
-                  < LessonCard
-                    lessonName={lesson.lesson_name}
-                    lessonDescription={lesson.lesson_description}
-                    lessonImg={lesson.lesson_photo}
-                    url={`/subject/${subject_id}/level/${level_id}/${lesson.lesson_id}`}
-                    key={lesson.lesson_id}
-                  />
-                </>
+                < LessonCard
+                  lessonName={lesson.lesson_name}
+                  lessonDescription={lesson.lesson_description}
+                  lessonImg={lesson.lesson_photo}
+                  url={`/subject/${subject_id}/level/${level_id}/${lesson.lesson_id}`}
+                  key={index}
+                />
               )
             })}
           </ul>

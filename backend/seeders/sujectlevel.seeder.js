@@ -3,9 +3,9 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    const subjects = await queryInterface.sequelize.query(`SELECT id FROM Subjects`, { type: Sequelize.QueryTypes.SELECT });
-    const levels = await queryInterface.sequelize.query(`SELECT id FROM Levels`, { type: Sequelize.QueryTypes.SELECT });
-    const lessons = await queryInterface.sequelize.query(`SELECT id FROM Lessons`, { type: Sequelize.QueryTypes.SELECT });
+    const subjects = await queryInterface.sequelize.query(`SELECT id FROM subjects`, { type: Sequelize.QueryTypes.SELECT });
+    const levels = await queryInterface.sequelize.query(`SELECT id FROM levels`, { type: Sequelize.QueryTypes.SELECT });
+    const lessons = await queryInterface.sequelize.query(`SELECT id FROM lessons`, { type: Sequelize.QueryTypes.SELECT });
 
     if (subjects.length === 0 || levels.length === 0 || lessons.length === 0) {
       console.warn("⚠ No subjects, levels or lessons in the db.");
@@ -23,7 +23,7 @@ module.exports = {
         subjectLevels.push({
           subjectId: subject.id,
           levelId: level.id,
-          lessonId: lessons[Math.floor(Math.random() * lessons.length)].id,
+          // lessonId: lessons[Math.floor(Math.random() * lessons.length)].id,
           createdAt: new Date(),
           updatedAt: new Date()
         });

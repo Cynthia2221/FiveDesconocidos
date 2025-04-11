@@ -98,6 +98,7 @@ module.exports = {
   },
 };
 
-
+// npx sequelize-cli db:migrate 
+// npx sequelize-cli db:migrate:undo:all
 // orden del seeders
 // $ npx sequelize-cli db:seed --seed level.seeder.js && npx sequelize-cli db:seed --seed subject.seeder.js && npx sequelize-cli db:seed --seed lesson.seeder.js && npx sequelize-cli db:seed --seed sujectlevel.seeder.js && npx sequelize-cli db:seed --seed user.seeder.js && npx sequelize-cli db:seed --seed usersubject.seeder.js
