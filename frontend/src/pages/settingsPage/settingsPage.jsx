@@ -27,8 +27,6 @@ export const SettingsPage = () => {
     setIsChecked(!isChecked);
   };
 
-  console.log(loginData.user.id);
-
   return (
     <Container>
       <SettingsPageContainer>

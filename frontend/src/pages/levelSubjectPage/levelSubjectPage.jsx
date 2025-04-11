@@ -35,6 +35,7 @@ export const LevelSubjectPage = () => {
             (lessons.length > 0) ? lessons.map((lesson) => {
               return (
                 <LessonCard
+                  key={lesson.lesson_id}
                   lessonName={lesson.lesson_name}
                   lessonDescription={lesson.lesson_description}
                   lessonImg={lesson.lesson_photo}

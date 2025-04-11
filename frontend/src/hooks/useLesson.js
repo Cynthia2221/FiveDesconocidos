@@ -9,7 +9,6 @@ const useLessons = (levelId, subjectId, lesson_id) => {
   useEffect(() => {
     LessonService.getLessonsByLevelAndSubject(levelId, subjectId)
       .then((response) => {
-        console.log(response)
         setLessons(response)
       })
     getLessonById(lesson_id)
@@ -18,7 +17,6 @@ const useLessons = (levelId, subjectId, lesson_id) => {
   const getLessonById = (lessonId) => {
     LessonService.show(lessonId)
       .then((response) => {
-        console.log(response)
         setLesson(response)
       })
   }

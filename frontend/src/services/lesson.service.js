@@ -31,7 +31,7 @@ const show = async (id) => {
     });
     return response;
   } catch (error) {
-    console.log("Error in the request show: ", error);
+    // console.log("Error in the request show: ", error);
     return null;
   }
 };
